@@ -1,0 +1,97 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-visitas-paciente-vitas-heading"
+        data-cy="VisitasPacienteCreateUpdateHeading"
+        jhiTranslate="vitasApp.visitasPaciente.home.createOrEditLabel"
+      >
+        Create or edit a Visitas Paciente
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="vitasApp.visitasPaciente.hora" for="field_hora">Hora</label>
+          <div class="d-flex">
+            <input
+              id="field_hora"
+              data-cy="hora"
+              type="datetime-local"
+              class="form-control"
+              name="hora"
+              formControlName="hora"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="vitasApp.visitasPaciente.duracion" for="field_duracion">Duracion</label>
+          <input type="number" class="form-control" name="duracion" id="field_duracion" data-cy="duracion" formControlName="duracion" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="vitasApp.visitasPaciente.paciente" for="field_paciente">Paciente</label>
+          <select class="form-control" id="field_paciente" data-cy="paciente" name="paciente" formControlName="paciente">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="usuarioOption.id === editForm.get('paciente')!.value?.id ? editForm.get('paciente')!.value : usuarioOption"
+              *ngFor="let usuarioOption of usuariosSharedCollection; trackBy: trackUsuarioVitasById"
+            >
+              {{ usuarioOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="vitasApp.visitasPaciente.visitante" for="field_visitante">Visitante</label>
+          <select class="form-control" id="field_visitante" data-cy="visitante" name="visitante" formControlName="visitante">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="usuarioOption.id === editForm.get('visitante')!.value?.id ? editForm.get('visitante')!.value : usuarioOption"
+              *ngFor="let usuarioOption of usuariosSharedCollection; trackBy: trackUsuarioVitasById"
+            >
+              {{ usuarioOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="vitasApp.visitasPaciente.sala" for="field_sala">Sala</label>
+          <select class="form-control" id="field_sala" data-cy="sala" name="sala" formControlName="sala">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="salaOption.id === editForm.get('sala')!.value?.id ? editForm.get('sala')!.value : salaOption"
+              *ngFor="let salaOption of salasSharedCollection; trackBy: trackSalaVitasById"
+            >
+              {{ salaOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

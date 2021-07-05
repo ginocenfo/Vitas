@@ -1,0 +1,31 @@
+{
+  "vitasApp": {
+    "sala": {
+      "home": {
+        "title": "Salas",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Sala",
+        "createOrEditLabel": "Créer ou éditer un Sala",
+        "notFound": "Aucun Sala trouvé"
+      },
+      "created": "Un nouveau Sala a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Sala avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Sala avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Sala {{ id }} ?"
+      },
+      "detail": {
+        "title": "Sala"
+      },
+      "id": "ID",
+      "nombre": "Nombre",
+      "numero": "Numero",
+      "piso": "Piso",
+      "totalPacientes": "Total Pacientes",
+      "numPacientes": "Num Pacientes",
+      "numVisitantes": "Num Visitantes",
+      "visitaDisponible": "Visita Disponible",
+      "hospital": "Hospital"
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "vitasApp": {
+    "horario": {
+      "home": {
+        "title": "Horarios",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Horario",
+        "createOrEditLabel": "Créer ou éditer un Horario",
+        "notFound": "Aucun Horario trouvé"
+      },
+      "created": "Un nouveau Horario a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Horario avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Horario avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Horario {{ id }} ?"
+      },
+      "detail": {
+        "title": "Horario"
+      },
+      "id": "ID",
+      "horaEntrada": "Hora Entrada",
+      "horaSalida": "Hora Salida",
+      "horario": "Horario"
+    }
+  }
+}

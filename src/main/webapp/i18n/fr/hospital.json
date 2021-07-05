@@ -1,0 +1,31 @@
+{
+  "vitasApp": {
+    "hospital": {
+      "home": {
+        "title": "Hospitals",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Hospital",
+        "createOrEditLabel": "Créer ou éditer un Hospital",
+        "notFound": "Aucun Hospital trouvé"
+      },
+      "created": "Un nouveau Hospital a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Hospital avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Hospital avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Hospital {{ id }} ?"
+      },
+      "detail": {
+        "title": "Hospital"
+      },
+      "id": "ID",
+      "nombre": "Nombre",
+      "provincia": "Provincia",
+      "canton": "Canton",
+      "distrito": "Distrito",
+      "direccion": "Direccion",
+      "telefono": "Telefono",
+      "email": "Email",
+      "salas": "Salas"
+    }
+  }
+}

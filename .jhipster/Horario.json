@@ -1,0 +1,32 @@
+{
+  "name": "Horario",
+  "fields": [
+    {
+      "fieldName": "horaEntrada",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "horaSalida",
+      "fieldType": "Instant"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "sala",
+      "otherEntityRelationshipName": "horario",
+      "relationshipName": "horario"
+    }
+  ],
+  "entityTableName": "horario",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "angularJSSuffix": "vitas",
+  "changelogDate": "20210705212548"
+}

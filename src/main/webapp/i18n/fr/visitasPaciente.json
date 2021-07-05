@@ -1,0 +1,28 @@
+{
+  "vitasApp": {
+    "visitasPaciente": {
+      "home": {
+        "title": "VisitasPacientes",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Visitas Paciente",
+        "createOrEditLabel": "Créer ou éditer un Visitas Paciente",
+        "notFound": "Aucun Visitas Paciente trouvé"
+      },
+      "created": "Un nouveau Visitas Paciente a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Visitas Paciente avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Visitas Paciente avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Visitas Paciente {{ id }} ?"
+      },
+      "detail": {
+        "title": "Visitas Paciente"
+      },
+      "id": "ID",
+      "hora": "Hora",
+      "duracion": "Duracion",
+      "paciente": "Paciente",
+      "visitante": "Visitante",
+      "sala": "Sala"
+    }
+  }
+}

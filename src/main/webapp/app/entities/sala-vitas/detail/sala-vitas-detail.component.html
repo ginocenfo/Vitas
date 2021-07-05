@@ -1,0 +1,62 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="sala">
+      <h2 data-cy="salaDetailsHeading"><span jhiTranslate="vitasApp.sala.detail.title">Sala</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ sala.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="vitasApp.sala.nombre">Nombre</span></dt>
+        <dd>
+          <span>{{ sala.nombre }}</span>
+        </dd>
+        <dt><span jhiTranslate="vitasApp.sala.numero">Numero</span></dt>
+        <dd>
+          <span>{{ sala.numero }}</span>
+        </dd>
+        <dt><span jhiTranslate="vitasApp.sala.piso">Piso</span></dt>
+        <dd>
+          <span>{{ sala.piso }}</span>
+        </dd>
+        <dt><span jhiTranslate="vitasApp.sala.totalPacientes">Total Pacientes</span></dt>
+        <dd>
+          <span>{{ sala.totalPacientes }}</span>
+        </dd>
+        <dt><span jhiTranslate="vitasApp.sala.numPacientes">Num Pacientes</span></dt>
+        <dd>
+          <span>{{ sala.numPacientes }}</span>
+        </dd>
+        <dt><span jhiTranslate="vitasApp.sala.numVisitantes">Num Visitantes</span></dt>
+        <dd>
+          <span>{{ sala.numVisitantes }}</span>
+        </dd>
+        <dt><span jhiTranslate="vitasApp.sala.visitaDisponible">Visita Disponible</span></dt>
+        <dd>
+          <span>{{ sala.visitaDisponible }}</span>
+        </dd>
+        <dt><span jhiTranslate="vitasApp.sala.hospital">Hospital</span></dt>
+        <dd>
+          <div *ngIf="sala.hospital">
+            <a [routerLink]="['/hospital-vitas', sala.hospital?.id, 'view']">{{ sala.hospital?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/sala-vitas', sala.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

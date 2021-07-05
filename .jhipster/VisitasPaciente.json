@@ -1,0 +1,44 @@
+{
+  "name": "VisitasPaciente",
+  "fields": [
+    {
+      "fieldName": "hora",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "duracion",
+      "fieldType": "Double"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "usuario",
+      "otherEntityRelationshipName": "visitasPaciente",
+      "relationshipName": "paciente"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "usuario",
+      "otherEntityRelationshipName": "visitasPaciente",
+      "relationshipName": "visitante"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "sala",
+      "otherEntityRelationshipName": "visitasPaciente",
+      "relationshipName": "sala"
+    }
+  ],
+  "entityTableName": "visitas_paciente",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "angularJSSuffix": "vitas",
+  "changelogDate": "20210705212550"
+}

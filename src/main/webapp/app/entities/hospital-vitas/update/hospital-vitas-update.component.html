@@ -1,0 +1,69 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-hospital-vitas-heading" data-cy="HospitalCreateUpdateHeading" jhiTranslate="vitasApp.hospital.home.createOrEditLabel">
+        Create or edit a Hospital
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="vitasApp.hospital.nombre" for="field_nombre">Nombre</label>
+          <input type="text" class="form-control" name="nombre" id="field_nombre" data-cy="nombre" formControlName="nombre" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="vitasApp.hospital.provincia" for="field_provincia">Provincia</label>
+          <input type="text" class="form-control" name="provincia" id="field_provincia" data-cy="provincia" formControlName="provincia" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="vitasApp.hospital.canton" for="field_canton">Canton</label>
+          <input type="text" class="form-control" name="canton" id="field_canton" data-cy="canton" formControlName="canton" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="vitasApp.hospital.distrito" for="field_distrito">Distrito</label>
+          <input type="text" class="form-control" name="distrito" id="field_distrito" data-cy="distrito" formControlName="distrito" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="vitasApp.hospital.direccion" for="field_direccion">Direccion</label>
+          <input type="text" class="form-control" name="direccion" id="field_direccion" data-cy="direccion" formControlName="direccion" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="vitasApp.hospital.telefono" for="field_telefono">Telefono</label>
+          <input type="text" class="form-control" name="telefono" id="field_telefono" data-cy="telefono" formControlName="telefono" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="vitasApp.hospital.email" for="field_email">Email</label>
+          <input type="text" class="form-control" name="email" id="field_email" data-cy="email" formControlName="email" />
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

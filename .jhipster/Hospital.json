@@ -1,0 +1,52 @@
+{
+  "name": "Hospital",
+  "fields": [
+    {
+      "fieldName": "nombre",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "provincia",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "canton",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "distrito",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "direccion",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "telefono",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "email",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "sala",
+      "otherEntityRelationshipName": "hospital",
+      "relationshipName": "salas"
+    }
+  ],
+  "entityTableName": "hospital",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "angularJSSuffix": "vitas",
+  "changelogDate": "20210705212546"
+}

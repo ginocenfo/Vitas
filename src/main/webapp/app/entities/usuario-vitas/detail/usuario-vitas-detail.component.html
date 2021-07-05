@@ -1,0 +1,72 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="usuario">
+      <h2 data-cy="usuarioDetailsHeading"><span jhiTranslate="vitasApp.usuario.detail.title">Usuario</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ usuario.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="vitasApp.usuario.identidad">Identidad</span></dt>
+        <dd>
+          <span>{{ usuario.identidad }}</span>
+        </dd>
+        <dt><span jhiTranslate="vitasApp.usuario.primerNombre">Primer Nombre</span></dt>
+        <dd>
+          <span>{{ usuario.primerNombre }}</span>
+        </dd>
+        <dt><span jhiTranslate="vitasApp.usuario.segundoNombre">Segundo Nombre</span></dt>
+        <dd>
+          <span>{{ usuario.segundoNombre }}</span>
+        </dd>
+        <dt><span jhiTranslate="vitasApp.usuario.primerApellido">Primer Apellido</span></dt>
+        <dd>
+          <span>{{ usuario.primerApellido }}</span>
+        </dd>
+        <dt><span jhiTranslate="vitasApp.usuario.segundoApellido">Segundo Apellido</span></dt>
+        <dd>
+          <span>{{ usuario.segundoApellido }}</span>
+        </dd>
+        <dt><span jhiTranslate="vitasApp.usuario.fechaNacimiento">Fecha Nacimiento</span></dt>
+        <dd>
+          <span>{{ usuario.fechaNacimiento | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="vitasApp.usuario.paisNacimiento">Pais Nacimiento</span></dt>
+        <dd>
+          <span>{{ usuario.paisNacimiento }}</span>
+        </dd>
+        <dt><span jhiTranslate="vitasApp.usuario.telefono">Telefono</span></dt>
+        <dd>
+          <span>{{ usuario.telefono }}</span>
+        </dd>
+        <dt><span jhiTranslate="vitasApp.usuario.tipoSangre">Tipo Sangre</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'vitasApp.TipoDeSangre.' + usuario.tipoSangre }}">{{ usuario.tipoSangre }}</span>
+        </dd>
+        <dt><span jhiTranslate="vitasApp.usuario.mail">Mail</span></dt>
+        <dd>
+          <span>{{ usuario.mail }}</span>
+        </dd>
+        <dt><span jhiTranslate="vitasApp.usuario.centroMedico">Centro Medico</span></dt>
+        <dd>
+          <span>{{ usuario.centroMedico }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/usuario-vitas', usuario.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

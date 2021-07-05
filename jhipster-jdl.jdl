@@ -55,14 +55,13 @@ enum TipoDeSangre{
 
 relationship OneToMany {
 	Hospital{salas} to Sala{hospital}
-    Sala{pacientes} to Usuario
-    Sala{horario} to Horario
 }
 
 relationship ManyToOne{
 	VisitasPaciente{Paciente} to Usuario
     VisitasPaciente{Visitante} to Usuario
     VisitasPaciente{Sala} to Sala
+    Horario{Horario} to Sala
 }
 
 paginate * with pagination
