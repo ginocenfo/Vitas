@@ -15,13 +15,16 @@ entity Sala {
     totalPacientes			Integer
     numPacientes			Integer
     numVisitantes			Integer
-    horarioVisitaInicio		Instant
-    horarioVisitaFin		Instant
     visitaDisponible		Boolean
 }
 
+entity Horario{
+	horaEntrada				Instant
+    horaSalida				Instant
+}
+
 entity Usuario{
-	@Id identidad			Long
+	identidad		    	Long
     primerNombre			String
     segundoNombre			String
     primerApellido			String
@@ -50,19 +53,17 @@ enum TipoDeSangre{
     AB_POSITIVO
 }
 
-
-
-
 relationship OneToMany {
 	Hospital{salas} to Sala{hospital}
     Sala{pacientes} to Usuario
+    Sala{horario} to Horario
 }
 
 relationship ManyToOne{
 	VisitasPaciente{Paciente} to Usuario
     VisitasPaciente{Visitante} to Usuario
+    VisitasPaciente{Sala} to Sala
 }
-
 
 paginate * with pagination
 
@@ -70,4 +71,4 @@ dto * with mapstruct
 
 service all with serviceImpl
 
- angularSuffix * with vitas
+angularSuffix * with vitas
