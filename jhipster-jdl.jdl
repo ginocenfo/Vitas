@@ -1,0 +1,73 @@
+entity Hospital {
+	nombre 					String
+    provincia 				String
+    canton 					String
+    distrito 				String
+    direccion 				String
+    telefono 				String
+    email 					String
+}
+
+entity Sala {
+	nombre 					String
+    numero					String
+    piso					Integer
+    totalPacientes			Integer
+    numPacientes			Integer
+    numVisitantes			Integer
+    horarioVisitaInicio		Instant
+    horarioVisitaFin		Instant
+    visitaDisponible		Boolean
+}
+
+entity Usuario{
+	@Id identidad			Long
+    primerNombre			String
+    segundoNombre			String
+    primerApellido			String
+    segundoApellido			String
+    fechaNacimiento			LocalDate
+    paisNacimiento			String
+    telefono				String
+    tipoSangre				TipoDeSangre
+    mail					String
+    centroMedico			String
+}
+
+entity VisitasPaciente{
+	hora 					Instant
+    duracion				Double
+}
+
+enum TipoDeSangre{
+	O_NEGATIVO
+    O_POSITIVO
+    A_NEGATIVO
+    A_POSITIVO
+    B_NEGATIVO
+    B_POSITIVO
+    AB_NEGATIVO
+    AB_POSITIVO
+}
+
+
+
+
+relationship OneToMany {
+	Hospital{salas} to Sala{hospital}
+    Sala{pacientes} to Usuario
+}
+
+relationship ManyToOne{
+	VisitasPaciente{Paciente} to Usuario
+    VisitasPaciente{Visitante} to Usuario
+}
+
+
+paginate * with pagination
+
+dto * with mapstruct
+
+service all with serviceImpl
+
+ angularSuffix * with vitas
