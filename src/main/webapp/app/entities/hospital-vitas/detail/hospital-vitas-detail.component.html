@@ -1,0 +1,56 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="hospital">
+      <h2 data-cy="hospitalDetailsHeading"><span jhiTranslate="vitasApp.hospital.detail.title">Hospital</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ hospital.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="vitasApp.hospital.nombre">Nombre</span></dt>
+        <dd>
+          <span>{{ hospital.nombre }}</span>
+        </dd>
+        <dt><span jhiTranslate="vitasApp.hospital.provincia">Provincia</span></dt>
+        <dd>
+          <span>{{ hospital.provincia }}</span>
+        </dd>
+        <dt><span jhiTranslate="vitasApp.hospital.canton">Canton</span></dt>
+        <dd>
+          <span>{{ hospital.canton }}</span>
+        </dd>
+        <dt><span jhiTranslate="vitasApp.hospital.distrito">Distrito</span></dt>
+        <dd>
+          <span>{{ hospital.distrito }}</span>
+        </dd>
+        <dt><span jhiTranslate="vitasApp.hospital.direccion">Direccion</span></dt>
+        <dd>
+          <span>{{ hospital.direccion }}</span>
+        </dd>
+        <dt><span jhiTranslate="vitasApp.hospital.telefono">Telefono</span></dt>
+        <dd>
+          <span>{{ hospital.telefono }}</span>
+        </dd>
+        <dt><span jhiTranslate="vitasApp.hospital.email">Email</span></dt>
+        <dd>
+          <span>{{ hospital.email }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/hospital-vitas', hospital.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

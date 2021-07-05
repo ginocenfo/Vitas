@@ -1,0 +1,165 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-usuario-vitas-heading" data-cy="UsuarioCreateUpdateHeading" jhiTranslate="vitasApp.usuario.home.createOrEditLabel">
+        Create or edit a Usuario
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="vitasApp.usuario.identidad" for="field_identidad">Identidad</label>
+          <input type="number" class="form-control" name="identidad" id="field_identidad" data-cy="identidad" formControlName="identidad" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="vitasApp.usuario.primerNombre" for="field_primerNombre">Primer Nombre</label>
+          <input
+            type="text"
+            class="form-control"
+            name="primerNombre"
+            id="field_primerNombre"
+            data-cy="primerNombre"
+            formControlName="primerNombre"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="vitasApp.usuario.segundoNombre" for="field_segundoNombre">Segundo Nombre</label>
+          <input
+            type="text"
+            class="form-control"
+            name="segundoNombre"
+            id="field_segundoNombre"
+            data-cy="segundoNombre"
+            formControlName="segundoNombre"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="vitasApp.usuario.primerApellido" for="field_primerApellido"
+            >Primer Apellido</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="primerApellido"
+            id="field_primerApellido"
+            data-cy="primerApellido"
+            formControlName="primerApellido"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="vitasApp.usuario.segundoApellido" for="field_segundoApellido"
+            >Segundo Apellido</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="segundoApellido"
+            id="field_segundoApellido"
+            data-cy="segundoApellido"
+            formControlName="segundoApellido"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="vitasApp.usuario.fechaNacimiento" for="field_fechaNacimiento"
+            >Fecha Nacimiento</label
+          >
+          <div class="input-group">
+            <input
+              id="field_fechaNacimiento"
+              data-cy="fechaNacimiento"
+              type="text"
+              class="form-control"
+              name="fechaNacimiento"
+              ngbDatepicker
+              #fechaNacimientoDp="ngbDatepicker"
+              formControlName="fechaNacimiento"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="fechaNacimientoDp.toggle()">
+                <fa-icon icon="calendar-alt"></fa-icon>
+              </button>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="vitasApp.usuario.paisNacimiento" for="field_paisNacimiento"
+            >Pais Nacimiento</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="paisNacimiento"
+            id="field_paisNacimiento"
+            data-cy="paisNacimiento"
+            formControlName="paisNacimiento"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="vitasApp.usuario.telefono" for="field_telefono">Telefono</label>
+          <input type="text" class="form-control" name="telefono" id="field_telefono" data-cy="telefono" formControlName="telefono" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="vitasApp.usuario.tipoSangre" for="field_tipoSangre">Tipo Sangre</label>
+          <select class="form-control" name="tipoSangre" formControlName="tipoSangre" id="field_tipoSangre" data-cy="tipoSangre">
+            <option [ngValue]="null">{{ 'vitasApp.TipoDeSangre.null' | translate }}</option>
+            <option value="O_NEGATIVO">{{ 'vitasApp.TipoDeSangre.O_NEGATIVO' | translate }}</option>
+            <option value="O_POSITIVO">{{ 'vitasApp.TipoDeSangre.O_POSITIVO' | translate }}</option>
+            <option value="A_NEGATIVO">{{ 'vitasApp.TipoDeSangre.A_NEGATIVO' | translate }}</option>
+            <option value="A_POSITIVO">{{ 'vitasApp.TipoDeSangre.A_POSITIVO' | translate }}</option>
+            <option value="B_NEGATIVO">{{ 'vitasApp.TipoDeSangre.B_NEGATIVO' | translate }}</option>
+            <option value="B_POSITIVO">{{ 'vitasApp.TipoDeSangre.B_POSITIVO' | translate }}</option>
+            <option value="AB_NEGATIVO">{{ 'vitasApp.TipoDeSangre.AB_NEGATIVO' | translate }}</option>
+            <option value="AB_POSITIVO">{{ 'vitasApp.TipoDeSangre.AB_POSITIVO' | translate }}</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="vitasApp.usuario.mail" for="field_mail">Mail</label>
+          <input type="text" class="form-control" name="mail" id="field_mail" data-cy="mail" formControlName="mail" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="vitasApp.usuario.centroMedico" for="field_centroMedico">Centro Medico</label>
+          <input
+            type="text"
+            class="form-control"
+            name="centroMedico"
+            id="field_centroMedico"
+            data-cy="centroMedico"
+            formControlName="centroMedico"
+          />
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

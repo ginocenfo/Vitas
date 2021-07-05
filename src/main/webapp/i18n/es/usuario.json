@@ -1,0 +1,34 @@
+{
+  "vitasApp": {
+    "usuario": {
+      "home": {
+        "title": "Usuarios",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Usuario",
+        "createOrEditLabel": "Crear o editar Usuario",
+        "notFound": "Ningún Usuarios encontrado"
+      },
+      "created": "Un nuevo Usuario ha sido creado con el identificador {{ param }}",
+      "updated": "Un Usuario ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Usuario ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Usuario {{ id }}?"
+      },
+      "detail": {
+        "title": "Usuario"
+      },
+      "id": "ID",
+      "identidad": "Identidad",
+      "primerNombre": "Primer Nombre",
+      "segundoNombre": "Segundo Nombre",
+      "primerApellido": "Primer Apellido",
+      "segundoApellido": "Segundo Apellido",
+      "fechaNacimiento": "Fecha Nacimiento",
+      "paisNacimiento": "Pais Nacimiento",
+      "telefono": "Telefono",
+      "tipoSangre": "Tipo Sangre",
+      "mail": "Mail",
+      "centroMedico": "Centro Medico"
+    }
+  }
+}

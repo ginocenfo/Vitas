@@ -1,0 +1,62 @@
+{
+  "name": "Usuario",
+  "fields": [
+    {
+      "fieldName": "identidad",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "primerNombre",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "segundoNombre",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "primerApellido",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "segundoApellido",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "fechaNacimiento",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "paisNacimiento",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "telefono",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "tipoSangre",
+      "fieldType": "TipoDeSangre",
+      "fieldValues": "O_NEGATIVO,O_POSITIVO,A_NEGATIVO,A_POSITIVO,B_NEGATIVO,B_POSITIVO,AB_NEGATIVO,AB_POSITIVO"
+    },
+    {
+      "fieldName": "mail",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "centroMedico",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [],
+  "entityTableName": "usuario",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "angularJSSuffix": "vitas",
+  "changelogDate": "20210705212549"
+}

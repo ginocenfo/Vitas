@@ -42,6 +42,8 @@
     "jwtSecretKey": "ZTEzMmU4YmFmNTg2M2Q3YzM3NWQ2ZmQ3MjFlYjQ4MDYyMDI0Y2JjYzVjOWIxN2NlZDQ2MTUwNGI1M2Q5NDQ2YmNhNDlkMWIyNzUyMzMwYzE1N2EyMjQwMThlM2JlZDA2YmQ0MDc4MmY1MzBmZTMxNmM0NDJhMDBiYmRjNjQ1MGM=",
     "devServerPort": 4200,
     "clientPackageManager": "npm",
-    "languages": ["es", "en", "fr"]
+    "languages": ["es", "en", "fr"],
+    "entities": ["Hospital", "Sala", "Horario", "Usuario", "VisitasPaciente"],
+    "lastLiquibaseTimestamp": 1625520350000
   }
 }

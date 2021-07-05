@@ -1,0 +1,52 @@
+{
+  "name": "Sala",
+  "fields": [
+    {
+      "fieldName": "nombre",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "numero",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "piso",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "totalPacientes",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "numPacientes",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "numVisitantes",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "visitaDisponible",
+      "fieldType": "Boolean"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "hospital",
+      "otherEntityRelationshipName": "salas",
+      "relationshipName": "hospital"
+    }
+  ],
+  "entityTableName": "sala",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "angularJSSuffix": "vitas",
+  "changelogDate": "20210705212547"
+}

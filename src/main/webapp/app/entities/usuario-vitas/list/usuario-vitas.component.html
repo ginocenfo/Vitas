@@ -1,0 +1,136 @@
+<div>
+  <h2 id="page-heading" data-cy="UsuarioHeading">
+    <span jhiTranslate="vitasApp.usuario.home.title">Usuarios</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadPage()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="vitasApp.usuario.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-usuario-vitas"
+        [routerLink]="['/usuario-vitas/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="vitasApp.usuario.home.createLabel"> Create a new Usuario </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="usuarios?.length === 0">
+    <span jhiTranslate="vitasApp.usuario.home.notFound">No usuarios found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="usuarios && usuarios.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+          <th scope="col" jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="identidad">
+            <span jhiTranslate="vitasApp.usuario.identidad">Identidad</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="primerNombre">
+            <span jhiTranslate="vitasApp.usuario.primerNombre">Primer Nombre</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="segundoNombre">
+            <span jhiTranslate="vitasApp.usuario.segundoNombre">Segundo Nombre</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="primerApellido">
+            <span jhiTranslate="vitasApp.usuario.primerApellido">Primer Apellido</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="segundoApellido">
+            <span jhiTranslate="vitasApp.usuario.segundoApellido">Segundo Apellido</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="fechaNacimiento">
+            <span jhiTranslate="vitasApp.usuario.fechaNacimiento">Fecha Nacimiento</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="paisNacimiento">
+            <span jhiTranslate="vitasApp.usuario.paisNacimiento">Pais Nacimiento</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="telefono">
+            <span jhiTranslate="vitasApp.usuario.telefono">Telefono</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="tipoSangre">
+            <span jhiTranslate="vitasApp.usuario.tipoSangre">Tipo Sangre</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="mail"><span jhiTranslate="vitasApp.usuario.mail">Mail</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="centroMedico">
+            <span jhiTranslate="vitasApp.usuario.centroMedico">Centro Medico</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let usuario of usuarios; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/usuario-vitas', usuario.id, 'view']">{{ usuario.id }}</a>
+          </td>
+          <td>{{ usuario.identidad }}</td>
+          <td>{{ usuario.primerNombre }}</td>
+          <td>{{ usuario.segundoNombre }}</td>
+          <td>{{ usuario.primerApellido }}</td>
+          <td>{{ usuario.segundoApellido }}</td>
+          <td>{{ usuario.fechaNacimiento | formatMediumDate }}</td>
+          <td>{{ usuario.paisNacimiento }}</td>
+          <td>{{ usuario.telefono }}</td>
+          <td jhiTranslate="{{ 'vitasApp.TipoDeSangre.' + usuario.tipoSangre }}">{{ usuario.tipoSangre }}</td>
+          <td>{{ usuario.mail }}</td>
+          <td>{{ usuario.centroMedico }}</td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/usuario-vitas', usuario.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/usuario-vitas', usuario.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(usuario)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="usuarios && usuarios.length > 0">
+    <div class="row justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="row justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [(page)]="ngbPaginationPage"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="loadPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>
