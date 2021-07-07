@@ -36,18 +36,6 @@
           <th scope="col" jhiSortBy="identidad">
             <span jhiTranslate="vitasApp.usuario.identidad">Identidad</span> <fa-icon icon="sort"></fa-icon>
           </th>
-          <th scope="col" jhiSortBy="primerNombre">
-            <span jhiTranslate="vitasApp.usuario.primerNombre">Primer Nombre</span> <fa-icon icon="sort"></fa-icon>
-          </th>
-          <th scope="col" jhiSortBy="segundoNombre">
-            <span jhiTranslate="vitasApp.usuario.segundoNombre">Segundo Nombre</span> <fa-icon icon="sort"></fa-icon>
-          </th>
-          <th scope="col" jhiSortBy="primerApellido">
-            <span jhiTranslate="vitasApp.usuario.primerApellido">Primer Apellido</span> <fa-icon icon="sort"></fa-icon>
-          </th>
-          <th scope="col" jhiSortBy="segundoApellido">
-            <span jhiTranslate="vitasApp.usuario.segundoApellido">Segundo Apellido</span> <fa-icon icon="sort"></fa-icon>
-          </th>
           <th scope="col" jhiSortBy="fechaNacimiento">
             <span jhiTranslate="vitasApp.usuario.fechaNacimiento">Fecha Nacimiento</span> <fa-icon icon="sort"></fa-icon>
           </th>
@@ -60,7 +48,6 @@
           <th scope="col" jhiSortBy="tipoSangre">
             <span jhiTranslate="vitasApp.usuario.tipoSangre">Tipo Sangre</span> <fa-icon icon="sort"></fa-icon>
           </th>
-          <th scope="col" jhiSortBy="mail"><span jhiTranslate="vitasApp.usuario.mail">Mail</span> <fa-icon icon="sort"></fa-icon></th>
           <th scope="col" jhiSortBy="centroMedico">
             <span jhiTranslate="vitasApp.usuario.centroMedico">Centro Medico</span> <fa-icon icon="sort"></fa-icon>
           </th>
@@ -77,15 +64,10 @@
             <a [routerLink]="['/usuario-vitas', usuario.id, 'view']">{{ usuario.id }}</a>
           </td>
           <td>{{ usuario.identidad }}</td>
-          <td>{{ usuario.primerNombre }}</td>
-          <td>{{ usuario.segundoNombre }}</td>
-          <td>{{ usuario.primerApellido }}</td>
-          <td>{{ usuario.segundoApellido }}</td>
           <td>{{ usuario.fechaNacimiento | formatMediumDate }}</td>
           <td>{{ usuario.paisNacimiento }}</td>
           <td>{{ usuario.telefono }}</td>
           <td jhiTranslate="{{ 'vitasApp.TipoDeSangre.' + usuario.tipoSangre }}">{{ usuario.tipoSangre }}</td>
-          <td>{{ usuario.mail }}</td>
           <td>{{ usuario.centroMedico }}</td>
           <td jhiTranslate="{{ 'vitasApp.TipoUsuario.' + usuario.tipoUsuario }}">{{ usuario.tipoUsuario }}</td>
           <td>

@@ -22,18 +22,6 @@ public class Usuario implements Serializable {
     @Column(name = "identidad")
     private Long identidad;
 
-    @Column(name = "primer_nombre")
-    private String primerNombre;
-
-    @Column(name = "segundo_nombre")
-    private String segundoNombre;
-
-    @Column(name = "primer_apellido")
-    private String primerApellido;
-
-    @Column(name = "segundo_apellido")
-    private String segundoApellido;
-
     @Column(name = "fecha_nacimiento")
     private LocalDate fechaNacimiento;
 
@@ -46,9 +34,6 @@ public class Usuario implements Serializable {
     @Enumerated(EnumType.STRING)
     @Column(name = "tipo_sangre")
     private TipoDeSangre tipoSangre;
-
-    @Column(name = "mail")
-    private String mail;
 
     @Column(name = "centro_medico")
     private String centroMedico;
@@ -86,58 +71,6 @@ public class Usuario implements Serializable {
 
     public void setIdentidad(Long identidad) {
         this.identidad = identidad;
-    }
-
-    public String getPrimerNombre() {
-        return this.primerNombre;
-    }
-
-    public Usuario primerNombre(String primerNombre) {
-        this.primerNombre = primerNombre;
-        return this;
-    }
-
-    public void setPrimerNombre(String primerNombre) {
-        this.primerNombre = primerNombre;
-    }
-
-    public String getSegundoNombre() {
-        return this.segundoNombre;
-    }
-
-    public Usuario segundoNombre(String segundoNombre) {
-        this.segundoNombre = segundoNombre;
-        return this;
-    }
-
-    public void setSegundoNombre(String segundoNombre) {
-        this.segundoNombre = segundoNombre;
-    }
-
-    public String getPrimerApellido() {
-        return this.primerApellido;
-    }
-
-    public Usuario primerApellido(String primerApellido) {
-        this.primerApellido = primerApellido;
-        return this;
-    }
-
-    public void setPrimerApellido(String primerApellido) {
-        this.primerApellido = primerApellido;
-    }
-
-    public String getSegundoApellido() {
-        return this.segundoApellido;
-    }
-
-    public Usuario segundoApellido(String segundoApellido) {
-        this.segundoApellido = segundoApellido;
-        return this;
-    }
-
-    public void setSegundoApellido(String segundoApellido) {
-        this.segundoApellido = segundoApellido;
     }
 
     public LocalDate getFechaNacimiento() {
@@ -190,19 +123,6 @@ public class Usuario implements Serializable {
 
     public void setTipoSangre(TipoDeSangre tipoSangre) {
         this.tipoSangre = tipoSangre;
-    }
-
-    public String getMail() {
-        return this.mail;
-    }
-
-    public Usuario mail(String mail) {
-        this.mail = mail;
-        return this;
-    }
-
-    public void setMail(String mail) {
-        this.mail = mail;
     }
 
     public String getCentroMedico() {
@@ -269,15 +189,10 @@ public class Usuario implements Serializable {
         return "Usuario{" +
             "id=" + getId() +
             ", identidad=" + getIdentidad() +
-            ", primerNombre='" + getPrimerNombre() + "'" +
-            ", segundoNombre='" + getSegundoNombre() + "'" +
-            ", primerApellido='" + getPrimerApellido() + "'" +
-            ", segundoApellido='" + getSegundoApellido() + "'" +
             ", fechaNacimiento='" + getFechaNacimiento() + "'" +
             ", paisNacimiento='" + getPaisNacimiento() + "'" +
             ", telefono='" + getTelefono() + "'" +
             ", tipoSangre='" + getTipoSangre() + "'" +
-            ", mail='" + getMail() + "'" +
             ", centroMedico='" + getCentroMedico() + "'" +
             ", tipoUsuario='" + getTipoUsuario() + "'" +
             "}";

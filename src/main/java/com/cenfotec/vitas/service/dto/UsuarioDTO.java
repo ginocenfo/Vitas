@@ -15,14 +15,6 @@ public class UsuarioDTO implements Serializable {
 
     private Long identidad;
 
-    private String primerNombre;
-
-    private String segundoNombre;
-
-    private String primerApellido;
-
-    private String segundoApellido;
-
     private LocalDate fechaNacimiento;
 
     private String paisNacimiento;
@@ -30,8 +22,6 @@ public class UsuarioDTO implements Serializable {
     private String telefono;
 
     private TipoDeSangre tipoSangre;
-
-    private String mail;
 
     private String centroMedico;
 
@@ -53,38 +43,6 @@ public class UsuarioDTO implements Serializable {
 
     public void setIdentidad(Long identidad) {
         this.identidad = identidad;
-    }
-
-    public String getPrimerNombre() {
-        return primerNombre;
-    }
-
-    public void setPrimerNombre(String primerNombre) {
-        this.primerNombre = primerNombre;
-    }
-
-    public String getSegundoNombre() {
-        return segundoNombre;
-    }
-
-    public void setSegundoNombre(String segundoNombre) {
-        this.segundoNombre = segundoNombre;
-    }
-
-    public String getPrimerApellido() {
-        return primerApellido;
-    }
-
-    public void setPrimerApellido(String primerApellido) {
-        this.primerApellido = primerApellido;
-    }
-
-    public String getSegundoApellido() {
-        return segundoApellido;
-    }
-
-    public void setSegundoApellido(String segundoApellido) {
-        this.segundoApellido = segundoApellido;
     }
 
     public LocalDate getFechaNacimiento() {
@@ -117,14 +75,6 @@ public class UsuarioDTO implements Serializable {
 
     public void setTipoSangre(TipoDeSangre tipoSangre) {
         this.tipoSangre = tipoSangre;
-    }
-
-    public String getMail() {
-        return mail;
-    }
-
-    public void setMail(String mail) {
-        this.mail = mail;
     }
 
     public String getCentroMedico() {
@@ -178,15 +128,10 @@ public class UsuarioDTO implements Serializable {
         return "UsuarioDTO{" +
             "id=" + getId() +
             ", identidad=" + getIdentidad() +
-            ", primerNombre='" + getPrimerNombre() + "'" +
-            ", segundoNombre='" + getSegundoNombre() + "'" +
-            ", primerApellido='" + getPrimerApellido() + "'" +
-            ", segundoApellido='" + getSegundoApellido() + "'" +
             ", fechaNacimiento='" + getFechaNacimiento() + "'" +
             ", paisNacimiento='" + getPaisNacimiento() + "'" +
             ", telefono='" + getTelefono() + "'" +
             ", tipoSangre='" + getTipoSangre() + "'" +
-            ", mail='" + getMail() + "'" +
             ", centroMedico='" + getCentroMedico() + "'" +
             ", tipoUsuario='" + getTipoUsuario() + "'" +
             ", user=" + getUser() +

@@ -38,18 +38,6 @@ class UsuarioResourceIT {
     private static final Long DEFAULT_IDENTIDAD = 1L;
     private static final Long UPDATED_IDENTIDAD = 2L;
 
-    private static final String DEFAULT_PRIMER_NOMBRE = "AAAAAAAAAA";
-    private static final String UPDATED_PRIMER_NOMBRE = "BBBBBBBBBB";
-
-    private static final String DEFAULT_SEGUNDO_NOMBRE = "AAAAAAAAAA";
-    private static final String UPDATED_SEGUNDO_NOMBRE = "BBBBBBBBBB";
-
-    private static final String DEFAULT_PRIMER_APELLIDO = "AAAAAAAAAA";
-    private static final String UPDATED_PRIMER_APELLIDO = "BBBBBBBBBB";
-
-    private static final String DEFAULT_SEGUNDO_APELLIDO = "AAAAAAAAAA";
-    private static final String UPDATED_SEGUNDO_APELLIDO = "BBBBBBBBBB";
-
     private static final LocalDate DEFAULT_FECHA_NACIMIENTO = LocalDate.ofEpochDay(0L);
     private static final LocalDate UPDATED_FECHA_NACIMIENTO = LocalDate.now(ZoneId.systemDefault());
 
@@ -61,9 +49,6 @@ class UsuarioResourceIT {
 
     private static final TipoDeSangre DEFAULT_TIPO_SANGRE = TipoDeSangre.O_NEGATIVO;
     private static final TipoDeSangre UPDATED_TIPO_SANGRE = TipoDeSangre.O_POSITIVO;
-
-    private static final String DEFAULT_MAIL = "AAAAAAAAAA";
-    private static final String UPDATED_MAIL = "BBBBBBBBBB";
 
     private static final String DEFAULT_CENTRO_MEDICO = "AAAAAAAAAA";
     private static final String UPDATED_CENTRO_MEDICO = "BBBBBBBBBB";
@@ -100,15 +85,10 @@ class UsuarioResourceIT {
     public static Usuario createEntity(EntityManager em) {
         Usuario usuario = new Usuario()
             .identidad(DEFAULT_IDENTIDAD)
-            .primerNombre(DEFAULT_PRIMER_NOMBRE)
-            .segundoNombre(DEFAULT_SEGUNDO_NOMBRE)
-            .primerApellido(DEFAULT_PRIMER_APELLIDO)
-            .segundoApellido(DEFAULT_SEGUNDO_APELLIDO)
             .fechaNacimiento(DEFAULT_FECHA_NACIMIENTO)
             .paisNacimiento(DEFAULT_PAIS_NACIMIENTO)
             .telefono(DEFAULT_TELEFONO)
             .tipoSangre(DEFAULT_TIPO_SANGRE)
-            .mail(DEFAULT_MAIL)
             .centroMedico(DEFAULT_CENTRO_MEDICO)
             .tipoUsuario(DEFAULT_TIPO_USUARIO);
         return usuario;
@@ -123,15 +103,10 @@ class UsuarioResourceIT {
     public static Usuario createUpdatedEntity(EntityManager em) {
         Usuario usuario = new Usuario()
             .identidad(UPDATED_IDENTIDAD)
-            .primerNombre(UPDATED_PRIMER_NOMBRE)
-            .segundoNombre(UPDATED_SEGUNDO_NOMBRE)
-            .primerApellido(UPDATED_PRIMER_APELLIDO)
-            .segundoApellido(UPDATED_SEGUNDO_APELLIDO)
             .fechaNacimiento(UPDATED_FECHA_NACIMIENTO)
             .paisNacimiento(UPDATED_PAIS_NACIMIENTO)
             .telefono(UPDATED_TELEFONO)
             .tipoSangre(UPDATED_TIPO_SANGRE)
-            .mail(UPDATED_MAIL)
             .centroMedico(UPDATED_CENTRO_MEDICO)
             .tipoUsuario(UPDATED_TIPO_USUARIO);
         return usuario;
@@ -157,15 +132,10 @@ class UsuarioResourceIT {
         assertThat(usuarioList).hasSize(databaseSizeBeforeCreate + 1);
         Usuario testUsuario = usuarioList.get(usuarioList.size() - 1);
         assertThat(testUsuario.getIdentidad()).isEqualTo(DEFAULT_IDENTIDAD);
-        assertThat(testUsuario.getPrimerNombre()).isEqualTo(DEFAULT_PRIMER_NOMBRE);
-        assertThat(testUsuario.getSegundoNombre()).isEqualTo(DEFAULT_SEGUNDO_NOMBRE);
-        assertThat(testUsuario.getPrimerApellido()).isEqualTo(DEFAULT_PRIMER_APELLIDO);
-        assertThat(testUsuario.getSegundoApellido()).isEqualTo(DEFAULT_SEGUNDO_APELLIDO);
         assertThat(testUsuario.getFechaNacimiento()).isEqualTo(DEFAULT_FECHA_NACIMIENTO);
         assertThat(testUsuario.getPaisNacimiento()).isEqualTo(DEFAULT_PAIS_NACIMIENTO);
         assertThat(testUsuario.getTelefono()).isEqualTo(DEFAULT_TELEFONO);
         assertThat(testUsuario.getTipoSangre()).isEqualTo(DEFAULT_TIPO_SANGRE);
-        assertThat(testUsuario.getMail()).isEqualTo(DEFAULT_MAIL);
         assertThat(testUsuario.getCentroMedico()).isEqualTo(DEFAULT_CENTRO_MEDICO);
         assertThat(testUsuario.getTipoUsuario()).isEqualTo(DEFAULT_TIPO_USUARIO);
     }
@@ -202,15 +172,10 @@ class UsuarioResourceIT {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(usuario.getId().intValue())))
             .andExpect(jsonPath("$.[*].identidad").value(hasItem(DEFAULT_IDENTIDAD.intValue())))
-            .andExpect(jsonPath("$.[*].primerNombre").value(hasItem(DEFAULT_PRIMER_NOMBRE)))
-            .andExpect(jsonPath("$.[*].segundoNombre").value(hasItem(DEFAULT_SEGUNDO_NOMBRE)))
-            .andExpect(jsonPath("$.[*].primerApellido").value(hasItem(DEFAULT_PRIMER_APELLIDO)))
-            .andExpect(jsonPath("$.[*].segundoApellido").value(hasItem(DEFAULT_SEGUNDO_APELLIDO)))
             .andExpect(jsonPath("$.[*].fechaNacimiento").value(hasItem(DEFAULT_FECHA_NACIMIENTO.toString())))
             .andExpect(jsonPath("$.[*].paisNacimiento").value(hasItem(DEFAULT_PAIS_NACIMIENTO)))
             .andExpect(jsonPath("$.[*].telefono").value(hasItem(DEFAULT_TELEFONO)))
             .andExpect(jsonPath("$.[*].tipoSangre").value(hasItem(DEFAULT_TIPO_SANGRE.toString())))
-            .andExpect(jsonPath("$.[*].mail").value(hasItem(DEFAULT_MAIL)))
             .andExpect(jsonPath("$.[*].centroMedico").value(hasItem(DEFAULT_CENTRO_MEDICO)))
             .andExpect(jsonPath("$.[*].tipoUsuario").value(hasItem(DEFAULT_TIPO_USUARIO.toString())));
     }
@@ -228,15 +193,10 @@ class UsuarioResourceIT {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(usuario.getId().intValue()))
             .andExpect(jsonPath("$.identidad").value(DEFAULT_IDENTIDAD.intValue()))
-            .andExpect(jsonPath("$.primerNombre").value(DEFAULT_PRIMER_NOMBRE))
-            .andExpect(jsonPath("$.segundoNombre").value(DEFAULT_SEGUNDO_NOMBRE))
-            .andExpect(jsonPath("$.primerApellido").value(DEFAULT_PRIMER_APELLIDO))
-            .andExpect(jsonPath("$.segundoApellido").value(DEFAULT_SEGUNDO_APELLIDO))
             .andExpect(jsonPath("$.fechaNacimiento").value(DEFAULT_FECHA_NACIMIENTO.toString()))
             .andExpect(jsonPath("$.paisNacimiento").value(DEFAULT_PAIS_NACIMIENTO))
             .andExpect(jsonPath("$.telefono").value(DEFAULT_TELEFONO))
             .andExpect(jsonPath("$.tipoSangre").value(DEFAULT_TIPO_SANGRE.toString()))
-            .andExpect(jsonPath("$.mail").value(DEFAULT_MAIL))
             .andExpect(jsonPath("$.centroMedico").value(DEFAULT_CENTRO_MEDICO))
             .andExpect(jsonPath("$.tipoUsuario").value(DEFAULT_TIPO_USUARIO.toString()));
     }
@@ -262,15 +222,10 @@ class UsuarioResourceIT {
         em.detach(updatedUsuario);
         updatedUsuario
             .identidad(UPDATED_IDENTIDAD)
-            .primerNombre(UPDATED_PRIMER_NOMBRE)
-            .segundoNombre(UPDATED_SEGUNDO_NOMBRE)
-            .primerApellido(UPDATED_PRIMER_APELLIDO)
-            .segundoApellido(UPDATED_SEGUNDO_APELLIDO)
             .fechaNacimiento(UPDATED_FECHA_NACIMIENTO)
             .paisNacimiento(UPDATED_PAIS_NACIMIENTO)
             .telefono(UPDATED_TELEFONO)
             .tipoSangre(UPDATED_TIPO_SANGRE)
-            .mail(UPDATED_MAIL)
             .centroMedico(UPDATED_CENTRO_MEDICO)
             .tipoUsuario(UPDATED_TIPO_USUARIO);
         UsuarioDTO usuarioDTO = usuarioMapper.toDto(updatedUsuario);
@@ -288,15 +243,10 @@ class UsuarioResourceIT {
         assertThat(usuarioList).hasSize(databaseSizeBeforeUpdate);
         Usuario testUsuario = usuarioList.get(usuarioList.size() - 1);
         assertThat(testUsuario.getIdentidad()).isEqualTo(UPDATED_IDENTIDAD);
-        assertThat(testUsuario.getPrimerNombre()).isEqualTo(UPDATED_PRIMER_NOMBRE);
-        assertThat(testUsuario.getSegundoNombre()).isEqualTo(UPDATED_SEGUNDO_NOMBRE);
-        assertThat(testUsuario.getPrimerApellido()).isEqualTo(UPDATED_PRIMER_APELLIDO);
-        assertThat(testUsuario.getSegundoApellido()).isEqualTo(UPDATED_SEGUNDO_APELLIDO);
         assertThat(testUsuario.getFechaNacimiento()).isEqualTo(UPDATED_FECHA_NACIMIENTO);
         assertThat(testUsuario.getPaisNacimiento()).isEqualTo(UPDATED_PAIS_NACIMIENTO);
         assertThat(testUsuario.getTelefono()).isEqualTo(UPDATED_TELEFONO);
         assertThat(testUsuario.getTipoSangre()).isEqualTo(UPDATED_TIPO_SANGRE);
-        assertThat(testUsuario.getMail()).isEqualTo(UPDATED_MAIL);
         assertThat(testUsuario.getCentroMedico()).isEqualTo(UPDATED_CENTRO_MEDICO);
         assertThat(testUsuario.getTipoUsuario()).isEqualTo(UPDATED_TIPO_USUARIO);
     }
@@ -378,14 +328,7 @@ class UsuarioResourceIT {
         Usuario partialUpdatedUsuario = new Usuario();
         partialUpdatedUsuario.setId(usuario.getId());
 
-        partialUpdatedUsuario
-            .identidad(UPDATED_IDENTIDAD)
-            .primerNombre(UPDATED_PRIMER_NOMBRE)
-            .segundoApellido(UPDATED_SEGUNDO_APELLIDO)
-            .telefono(UPDATED_TELEFONO)
-            .tipoSangre(UPDATED_TIPO_SANGRE)
-            .mail(UPDATED_MAIL)
-            .tipoUsuario(UPDATED_TIPO_USUARIO);
+        partialUpdatedUsuario.identidad(UPDATED_IDENTIDAD).fechaNacimiento(UPDATED_FECHA_NACIMIENTO).tipoSangre(UPDATED_TIPO_SANGRE);
 
         restUsuarioMockMvc
             .perform(
@@ -400,17 +343,12 @@ class UsuarioResourceIT {
         assertThat(usuarioList).hasSize(databaseSizeBeforeUpdate);
         Usuario testUsuario = usuarioList.get(usuarioList.size() - 1);
         assertThat(testUsuario.getIdentidad()).isEqualTo(UPDATED_IDENTIDAD);
-        assertThat(testUsuario.getPrimerNombre()).isEqualTo(UPDATED_PRIMER_NOMBRE);
-        assertThat(testUsuario.getSegundoNombre()).isEqualTo(DEFAULT_SEGUNDO_NOMBRE);
-        assertThat(testUsuario.getPrimerApellido()).isEqualTo(DEFAULT_PRIMER_APELLIDO);
-        assertThat(testUsuario.getSegundoApellido()).isEqualTo(UPDATED_SEGUNDO_APELLIDO);
-        assertThat(testUsuario.getFechaNacimiento()).isEqualTo(DEFAULT_FECHA_NACIMIENTO);
+        assertThat(testUsuario.getFechaNacimiento()).isEqualTo(UPDATED_FECHA_NACIMIENTO);
         assertThat(testUsuario.getPaisNacimiento()).isEqualTo(DEFAULT_PAIS_NACIMIENTO);
-        assertThat(testUsuario.getTelefono()).isEqualTo(UPDATED_TELEFONO);
+        assertThat(testUsuario.getTelefono()).isEqualTo(DEFAULT_TELEFONO);
         assertThat(testUsuario.getTipoSangre()).isEqualTo(UPDATED_TIPO_SANGRE);
-        assertThat(testUsuario.getMail()).isEqualTo(UPDATED_MAIL);
         assertThat(testUsuario.getCentroMedico()).isEqualTo(DEFAULT_CENTRO_MEDICO);
-        assertThat(testUsuario.getTipoUsuario()).isEqualTo(UPDATED_TIPO_USUARIO);
+        assertThat(testUsuario.getTipoUsuario()).isEqualTo(DEFAULT_TIPO_USUARIO);
     }
 
     @Test
@@ -427,15 +365,10 @@ class UsuarioResourceIT {
 
         partialUpdatedUsuario
             .identidad(UPDATED_IDENTIDAD)
-            .primerNombre(UPDATED_PRIMER_NOMBRE)
-            .segundoNombre(UPDATED_SEGUNDO_NOMBRE)
-            .primerApellido(UPDATED_PRIMER_APELLIDO)
-            .segundoApellido(UPDATED_SEGUNDO_APELLIDO)
             .fechaNacimiento(UPDATED_FECHA_NACIMIENTO)
             .paisNacimiento(UPDATED_PAIS_NACIMIENTO)
             .telefono(UPDATED_TELEFONO)
             .tipoSangre(UPDATED_TIPO_SANGRE)
-            .mail(UPDATED_MAIL)
             .centroMedico(UPDATED_CENTRO_MEDICO)
             .tipoUsuario(UPDATED_TIPO_USUARIO);
 
@@ -452,15 +385,10 @@ class UsuarioResourceIT {
         assertThat(usuarioList).hasSize(databaseSizeBeforeUpdate);
         Usuario testUsuario = usuarioList.get(usuarioList.size() - 1);
         assertThat(testUsuario.getIdentidad()).isEqualTo(UPDATED_IDENTIDAD);
-        assertThat(testUsuario.getPrimerNombre()).isEqualTo(UPDATED_PRIMER_NOMBRE);
-        assertThat(testUsuario.getSegundoNombre()).isEqualTo(UPDATED_SEGUNDO_NOMBRE);
-        assertThat(testUsuario.getPrimerApellido()).isEqualTo(UPDATED_PRIMER_APELLIDO);
-        assertThat(testUsuario.getSegundoApellido()).isEqualTo(UPDATED_SEGUNDO_APELLIDO);
         assertThat(testUsuario.getFechaNacimiento()).isEqualTo(UPDATED_FECHA_NACIMIENTO);
         assertThat(testUsuario.getPaisNacimiento()).isEqualTo(UPDATED_PAIS_NACIMIENTO);
         assertThat(testUsuario.getTelefono()).isEqualTo(UPDATED_TELEFONO);
         assertThat(testUsuario.getTipoSangre()).isEqualTo(UPDATED_TIPO_SANGRE);
-        assertThat(testUsuario.getMail()).isEqualTo(UPDATED_MAIL);
         assertThat(testUsuario.getCentroMedico()).isEqualTo(UPDATED_CENTRO_MEDICO);
         assertThat(testUsuario.getTipoUsuario()).isEqualTo(UPDATED_TIPO_USUARIO);
     }

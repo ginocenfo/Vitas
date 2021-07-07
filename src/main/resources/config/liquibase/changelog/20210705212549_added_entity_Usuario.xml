@@ -17,18 +17,6 @@
             <column name="identidad" type="bigint">
                 <constraints nullable="true" />
             </column>
-            <column name="primer_nombre" type="varchar(255)">
-                <constraints nullable="true" />
-            </column>
-            <column name="segundo_nombre" type="varchar(255)">
-                <constraints nullable="true" />
-            </column>
-            <column name="primer_apellido" type="varchar(255)">
-                <constraints nullable="true" />
-            </column>
-            <column name="segundo_apellido" type="varchar(255)">
-                <constraints nullable="true" />
-            </column>
             <column name="fecha_nacimiento" type="date">
                 <constraints nullable="true" />
             </column>
@@ -39,9 +27,6 @@
                 <constraints nullable="true" />
             </column>
             <column name="tipo_sangre" type="varchar(255)">
-                <constraints nullable="true" />
-            </column>
-            <column name="mail" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
             <column name="centro_medico" type="varchar(255)">
@@ -74,15 +59,10 @@
                   tableName="usuario">
             <column name="id" type="numeric"/>
             <column name="identidad" type="numeric"/>
-            <column name="primer_nombre" type="string"/>
-            <column name="segundo_nombre" type="string"/>
-            <column name="primer_apellido" type="string"/>
-            <column name="segundo_apellido" type="string"/>
             <column name="fecha_nacimiento" type="date"/>
             <column name="pais_nacimiento" type="string"/>
             <column name="telefono" type="string"/>
             <column name="tipo_sangre" type="string"/>
-            <column name="mail" type="string"/>
             <column name="centro_medico" type="string"/>
             <column name="tipo_usuario" type="string"/>
             <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->

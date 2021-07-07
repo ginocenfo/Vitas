@@ -29,15 +29,10 @@ describe('Service Tests', () => {
       elemDefault = {
         id: 0,
         identidad: 0,
-        primerNombre: 'AAAAAAA',
-        segundoNombre: 'AAAAAAA',
-        primerApellido: 'AAAAAAA',
-        segundoApellido: 'AAAAAAA',
         fechaNacimiento: currentDate,
         paisNacimiento: 'AAAAAAA',
         telefono: 'AAAAAAA',
         tipoSangre: TipoDeSangre.O_NEGATIVO,
-        mail: 'AAAAAAA',
         centroMedico: 'AAAAAAA',
         tipoUsuario: TipoUsuario.ADMIN,
       };
@@ -87,15 +82,10 @@ describe('Service Tests', () => {
           {
             id: 1,
             identidad: 1,
-            primerNombre: 'BBBBBB',
-            segundoNombre: 'BBBBBB',
-            primerApellido: 'BBBBBB',
-            segundoApellido: 'BBBBBB',
             fechaNacimiento: currentDate.format(DATE_FORMAT),
             paisNacimiento: 'BBBBBB',
             telefono: 'BBBBBB',
             tipoSangre: 'BBBBBB',
-            mail: 'BBBBBB',
             centroMedico: 'BBBBBB',
             tipoUsuario: 'BBBBBB',
           },
@@ -119,13 +109,8 @@ describe('Service Tests', () => {
       it('should partial update a UsuarioVitas', () => {
         const patchObject = Object.assign(
           {
-            primerNombre: 'BBBBBB',
-            segundoApellido: 'BBBBBB',
-            paisNacimiento: 'BBBBBB',
-            telefono: 'BBBBBB',
+            fechaNacimiento: currentDate.format(DATE_FORMAT),
             tipoSangre: 'BBBBBB',
-            mail: 'BBBBBB',
-            centroMedico: 'BBBBBB',
             tipoUsuario: 'BBBBBB',
           },
           new UsuarioVitas()
@@ -152,15 +137,10 @@ describe('Service Tests', () => {
           {
             id: 1,
             identidad: 1,
-            primerNombre: 'BBBBBB',
-            segundoNombre: 'BBBBBB',
-            primerApellido: 'BBBBBB',
-            segundoApellido: 'BBBBBB',
             fechaNacimiento: currentDate.format(DATE_FORMAT),
             paisNacimiento: 'BBBBBB',
             telefono: 'BBBBBB',
             tipoSangre: 'BBBBBB',
-            mail: 'BBBBBB',
             centroMedico: 'BBBBBB',
             tipoUsuario: 'BBBBBB',
           },
@@ -219,7 +199,7 @@ describe('Service Tests', () => {
         });
 
         it('should add only unique UsuarioVitas to an array', () => {
-          const usuarioArray: IUsuarioVitas[] = [{ id: 123 }, { id: 456 }, { id: 59387 }];
+          const usuarioArray: IUsuarioVitas[] = [{ id: 123 }, { id: 456 }, { id: 54271 }];
           const usuarioCollection: IUsuarioVitas[] = [{ id: 123 }];
           expectedResult = service.addUsuarioVitasToCollectionIfMissing(usuarioCollection, ...usuarioArray);
           expect(expectedResult).toHaveLength(3);

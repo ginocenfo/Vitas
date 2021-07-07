@@ -25,15 +25,10 @@ entity Horario{
 
 entity Usuario{
 	identidad		    	Long
-    primerNombre			String
-    segundoNombre			String
-    primerApellido			String
-    segundoApellido			String
     fechaNacimiento			LocalDate
     paisNacimiento			String
     telefono				String
     tipoSangre				TipoDeSangre
-    mail					String
     centroMedico			String
     tipoUsuario				TipoUsuario
 }
