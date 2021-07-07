@@ -1,11 +1,11 @@
-id;identidad;primer_nombre;segundo_nombre;primer_apellido;segundo_apellido;fecha_nacimiento;pais_nacimiento;telefono;tipo_sangre;mail;centro_medico
-1;51554;circuit SCSI;deposit;synthesize;Informática;2021-07-04;Metal Interno Leone;transmitting Galicia;AB_NEGATIVO;Buckinghamshire Aragón;generate
-2;28162;SCSI Inteligente;payment state;deposit Mascotas;Facilitador Hecho morph;2021-07-05;real-time generación;Violeta;A_POSITIVO;local;navigating
-3;60987;Corporativo Investigación Guantes;payment;up;Bicicleta;2021-07-05;auxiliary Gerente;Perú;B_NEGATIVO;Fantástico e-commerce demanda;Market
-4;96520;CSS;Guapa Uganda;copy Comunidad;Perseverando Técnico;2021-07-05;Sorprendente;Horizontal alarm;A_POSITIVO;Vía deposit infomediaries;input Plástico platforms
-5;41416;primary;Cambridgeshire Checking;Won transmit;Ingeniero;2021-07-05;SMS THX input;Asimilado XSS parsing;A_POSITIVO;Canarias estatica;Diseñador Borders
-6;68071;generating;markets Credit;Ramal Fácil Pequeño;ejecutiva cutting-edge;2021-07-04;Electrónica algoritmo Personal;en hard Bricolaje;AB_POSITIVO;Bedfordshire;Bermuda
-7;85926;partnerships markets;Distrito Juguetería synergize;Diverso invoice;driver hacking;2021-07-05;Berkshire unleash;Guapa Madera;AB_POSITIVO;Guapa Representante program;SDD markets
-8;30790;Gerente Pollo estatica;real-time Refinado;Municipio Juguetería;Consultor Regional Pelota;2021-07-05;array Verde;bluetooth Castilla-La TCP;O_NEGATIVO;Unidos array;Valenciana THX
-9;36854;Ladrillo;Multi reintermediate;Queso Librería;Afghani Borders Murcia;2021-07-05;Amarillo Música;portals productividad;B_NEGATIVO;deposit;Raton empower Islands
-10;58127;bandwidth Montenegro;Rojo;Cantabria;Zapatos;2021-07-05;Equilibrado;Parafarmacia;AB_POSITIVO;Inteligente overriding mobile;Tácticas Zapatos AI
+id;identidad;primer_nombre;segundo_nombre;primer_apellido;segundo_apellido;fecha_nacimiento;pais_nacimiento;telefono;tipo_sangre;mail;centro_medico;tipo_usuario
+1;51554;circuit SCSI;deposit;synthesize;Informática;2021-07-04;Metal Interno Leone;transmitting Galicia;AB_NEGATIVO;Buckinghamshire Aragón;generate;ADMIN
+2;35448;GB Total payment;Adelante deposit Mascotas;Facilitador Hecho morph;withdrawal empower microchip;2021-07-04;Bedfordshire Costa navigating;circuit Sabroso;AB_POSITIVO;proyección;Auto up;ADMIN
+3;17197;innovate;Bricolaje International Perú;bandwidth Grupo;demanda metodologías;2021-07-05;Refinado online bypassing;Salud complejidad hack;A_NEGATIVO;Decoración Algodón;Buckinghamshire;ADMIN
+4;36071;alarm extend Administrador;technologies;input Videojuegos;platforms platforms Fantástico;2021-07-05;Borders Gorro web-readiness;e-services generación optical;O_POSITIVO;invoice pixel Asimilado;Tácticas Operaciones Borders;ASEGURADO
+5;26833;withdrawal Comunidad Account;generating;markets Credit;Ramal Fácil Pequeño;2021-07-05;distributed;Sabroso Electrónica algoritmo;B_POSITIVO;Música interface Andalucía;transicional Bedfordshire;ADMIN
+6;54454;Suecia;Fantástico Metal;Juguetería;expedite Diverso;2021-07-05;Fantástico Electrónica Pantalones;Berkshire unleash;A_NEGATIVO;copying;Gerente;ADMIN
+7;82829;Representante program;SDD markets;Interacciones;Pollo estatica Ferrocarril;2021-07-05;Regional;Lugar;AB_NEGATIVO;productize;digital utilize contenido;CENTINELA
+8;73152;Diseñador program;Orgánico Morado;Granito array;Valenciana THX;2021-07-05;Ladrillo;Multi reintermediate;B_NEGATIVO;open-source;capacitor;ADMIN
+9;25505;deposit Configuración;Amarillo Música;portals productividad;Artesanal parsing;2021-07-05;empower;Islands La Borders;A_POSITIVO;Rojo;Cantabria;ADMIN
+10;15939;deposit Equilibrado;Parafarmacia;Brunei Bacon Consultor;parse Avenida;2021-07-05;program Refinado;robust panel;O_POSITIVO;Account Bicicleta real-time;Andalucía;ADMIN

@@ -26,7 +26,7 @@ public class Horario implements Serializable {
 
     @ManyToOne
     @JsonIgnoreProperties(value = { "hospital" }, allowSetters = true)
-    private Sala horario;
+    private Sala sala;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -68,17 +68,17 @@ public class Horario implements Serializable {
         this.horaSalida = horaSalida;
     }
 
-    public Sala getHorario() {
-        return this.horario;
+    public Sala getSala() {
+        return this.sala;
     }
 
-    public Horario horario(Sala sala) {
-        this.setHorario(sala);
+    public Horario sala(Sala sala) {
+        this.setSala(sala);
         return this;
     }
 
-    public void setHorario(Sala sala) {
-        this.horario = sala;
+    public void setSala(Sala sala) {
+        this.sala = sala;
     }
 
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here

@@ -47,6 +47,12 @@
             <column name="centro_medico" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
+            <column name="tipo_usuario" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="user_id" type="bigint">
+                <constraints nullable="true" unique="true" uniqueConstraintName="ux_usuario__user_id" />
+            </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
         </createTable>
     </changeSet>
@@ -78,6 +84,7 @@
             <column name="tipo_sangre" type="string"/>
             <column name="mail" type="string"/>
             <column name="centro_medico" type="string"/>
+            <column name="tipo_usuario" type="string"/>
             <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
         </loadData>
     </changeSet>

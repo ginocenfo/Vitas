@@ -25,14 +25,16 @@ public class VisitasPaciente implements Serializable {
     private Double duracion;
 
     @ManyToOne
+    @JsonIgnoreProperties(value = { "user" }, allowSetters = true)
     private Usuario paciente;
 
     @ManyToOne
+    @JsonIgnoreProperties(value = { "user" }, allowSetters = true)
     private Usuario visitante;
 
     @ManyToOne
-    @JsonIgnoreProperties(value = { "hospital" }, allowSetters = true)
-    private Sala sala;
+    @JsonIgnoreProperties(value = { "paciente", "sala" }, allowSetters = true)
+    private Internamiento sala;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -100,17 +102,17 @@ public class VisitasPaciente implements Serializable {
         this.visitante = usuario;
     }
 
-    public Sala getSala() {
+    public Internamiento getSala() {
         return this.sala;
     }
 
-    public VisitasPaciente sala(Sala sala) {
-        this.setSala(sala);
+    public VisitasPaciente sala(Internamiento internamiento) {
+        this.setSala(internamiento);
         return this;
     }
 
-    public void setSala(Sala sala) {
-        this.sala = sala;
+    public void setSala(Internamiento internamiento) {
+        this.sala = internamiento;
     }
 
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here

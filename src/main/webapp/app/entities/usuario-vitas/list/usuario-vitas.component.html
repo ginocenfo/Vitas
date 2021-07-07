@@ -64,6 +64,10 @@
           <th scope="col" jhiSortBy="centroMedico">
             <span jhiTranslate="vitasApp.usuario.centroMedico">Centro Medico</span> <fa-icon icon="sort"></fa-icon>
           </th>
+          <th scope="col" jhiSortBy="tipoUsuario">
+            <span jhiTranslate="vitasApp.usuario.tipoUsuario">Tipo Usuario</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="user.id"><span jhiTranslate="vitasApp.usuario.user">User</span> <fa-icon icon="sort"></fa-icon></th>
           <th scope="col"></th>
         </tr>
       </thead>
@@ -83,6 +87,10 @@
           <td jhiTranslate="{{ 'vitasApp.TipoDeSangre.' + usuario.tipoSangre }}">{{ usuario.tipoSangre }}</td>
           <td>{{ usuario.mail }}</td>
           <td>{{ usuario.centroMedico }}</td>
+          <td jhiTranslate="{{ 'vitasApp.TipoUsuario.' + usuario.tipoUsuario }}">{{ usuario.tipoUsuario }}</td>
+          <td>
+            {{ usuario.user?.id }}
+          </td>
           <td class="text-right">
             <div class="btn-group">
               <button

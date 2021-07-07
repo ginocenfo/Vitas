@@ -15,7 +15,7 @@
       "relationshipType": "many-to-one",
       "otherEntityName": "sala",
       "otherEntityRelationshipName": "horario",
-      "relationshipName": "horario"
+      "relationshipName": "sala"
     }
   ],
   "entityTableName": "horario",

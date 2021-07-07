@@ -22,10 +22,10 @@
         <dd>
           <span>{{ horario.horaSalida | formatMediumDatetime }}</span>
         </dd>
-        <dt><span jhiTranslate="vitasApp.horario.horario">Horario</span></dt>
+        <dt><span jhiTranslate="vitasApp.horario.sala">Sala</span></dt>
         <dd>
-          <div *ngIf="horario.horario">
-            <a [routerLink]="['/sala-vitas', horario.horario?.id, 'view']">{{ horario.horario?.id }}</a>
+          <div *ngIf="horario.sala">
+            <a [routerLink]="['/sala-vitas', horario.sala?.id, 'view']">{{ horario.sala?.id }}</a>
           </div>
         </dd>
       </dl>

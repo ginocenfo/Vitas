@@ -45,9 +45,22 @@
     {
       "fieldName": "centroMedico",
       "fieldType": "String"
+    },
+    {
+      "fieldName": "tipoUsuario",
+      "fieldType": "TipoUsuario",
+      "fieldValues": "ADMIN,CENTINELA,ASEGURADO"
     }
   ],
-  "relationships": [],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "user",
+      "otherEntityRelationshipName": "usuario",
+      "relationshipName": "user",
+      "ownerSide": true
+    }
+  ],
   "entityTableName": "usuario",
   "dto": "mapstruct",
   "pagination": "pagination",

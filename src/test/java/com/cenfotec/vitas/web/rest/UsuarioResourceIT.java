@@ -8,6 +8,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import com.cenfotec.vitas.IntegrationTest;
 import com.cenfotec.vitas.domain.Usuario;
 import com.cenfotec.vitas.domain.enumeration.TipoDeSangre;
+import com.cenfotec.vitas.domain.enumeration.TipoUsuario;
 import com.cenfotec.vitas.repository.UsuarioRepository;
 import com.cenfotec.vitas.service.dto.UsuarioDTO;
 import com.cenfotec.vitas.service.mapper.UsuarioMapper;
@@ -67,6 +68,9 @@ class UsuarioResourceIT {
     private static final String DEFAULT_CENTRO_MEDICO = "AAAAAAAAAA";
     private static final String UPDATED_CENTRO_MEDICO = "BBBBBBBBBB";
 
+    private static final TipoUsuario DEFAULT_TIPO_USUARIO = TipoUsuario.ADMIN;
+    private static final TipoUsuario UPDATED_TIPO_USUARIO = TipoUsuario.CENTINELA;
+
     private static final String ENTITY_API_URL = "/api/usuarios";
     private static final String ENTITY_API_URL_ID = ENTITY_API_URL + "/{id}";
 
@@ -105,7 +109,8 @@ class UsuarioResourceIT {
             .telefono(DEFAULT_TELEFONO)
             .tipoSangre(DEFAULT_TIPO_SANGRE)
             .mail(DEFAULT_MAIL)
-            .centroMedico(DEFAULT_CENTRO_MEDICO);
+            .centroMedico(DEFAULT_CENTRO_MEDICO)
+            .tipoUsuario(DEFAULT_TIPO_USUARIO);
         return usuario;
     }
 
@@ -127,7 +132,8 @@ class UsuarioResourceIT {
             .telefono(UPDATED_TELEFONO)
             .tipoSangre(UPDATED_TIPO_SANGRE)
             .mail(UPDATED_MAIL)
-            .centroMedico(UPDATED_CENTRO_MEDICO);
+            .centroMedico(UPDATED_CENTRO_MEDICO)
+            .tipoUsuario(UPDATED_TIPO_USUARIO);
         return usuario;
     }
 
@@ -161,6 +167,7 @@ class UsuarioResourceIT {
         assertThat(testUsuario.getTipoSangre()).isEqualTo(DEFAULT_TIPO_SANGRE);
         assertThat(testUsuario.getMail()).isEqualTo(DEFAULT_MAIL);
         assertThat(testUsuario.getCentroMedico()).isEqualTo(DEFAULT_CENTRO_MEDICO);
+        assertThat(testUsuario.getTipoUsuario()).isEqualTo(DEFAULT_TIPO_USUARIO);
     }
 
     @Test
@@ -204,7 +211,8 @@ class UsuarioResourceIT {
             .andExpect(jsonPath("$.[*].telefono").value(hasItem(DEFAULT_TELEFONO)))
             .andExpect(jsonPath("$.[*].tipoSangre").value(hasItem(DEFAULT_TIPO_SANGRE.toString())))
             .andExpect(jsonPath("$.[*].mail").value(hasItem(DEFAULT_MAIL)))
-            .andExpect(jsonPath("$.[*].centroMedico").value(hasItem(DEFAULT_CENTRO_MEDICO)));
+            .andExpect(jsonPath("$.[*].centroMedico").value(hasItem(DEFAULT_CENTRO_MEDICO)))
+            .andExpect(jsonPath("$.[*].tipoUsuario").value(hasItem(DEFAULT_TIPO_USUARIO.toString())));
     }
 
     @Test
@@ -229,7 +237,8 @@ class UsuarioResourceIT {
             .andExpect(jsonPath("$.telefono").value(DEFAULT_TELEFONO))
             .andExpect(jsonPath("$.tipoSangre").value(DEFAULT_TIPO_SANGRE.toString()))
             .andExpect(jsonPath("$.mail").value(DEFAULT_MAIL))
-            .andExpect(jsonPath("$.centroMedico").value(DEFAULT_CENTRO_MEDICO));
+            .andExpect(jsonPath("$.centroMedico").value(DEFAULT_CENTRO_MEDICO))
+            .andExpect(jsonPath("$.tipoUsuario").value(DEFAULT_TIPO_USUARIO.toString()));
     }
 
     @Test
@@ -262,7 +271,8 @@ class UsuarioResourceIT {
             .telefono(UPDATED_TELEFONO)
             .tipoSangre(UPDATED_TIPO_SANGRE)
             .mail(UPDATED_MAIL)
-            .centroMedico(UPDATED_CENTRO_MEDICO);
+            .centroMedico(UPDATED_CENTRO_MEDICO)
+            .tipoUsuario(UPDATED_TIPO_USUARIO);
         UsuarioDTO usuarioDTO = usuarioMapper.toDto(updatedUsuario);
 
         restUsuarioMockMvc
@@ -288,6 +298,7 @@ class UsuarioResourceIT {
         assertThat(testUsuario.getTipoSangre()).isEqualTo(UPDATED_TIPO_SANGRE);
         assertThat(testUsuario.getMail()).isEqualTo(UPDATED_MAIL);
         assertThat(testUsuario.getCentroMedico()).isEqualTo(UPDATED_CENTRO_MEDICO);
+        assertThat(testUsuario.getTipoUsuario()).isEqualTo(UPDATED_TIPO_USUARIO);
     }
 
     @Test
@@ -373,7 +384,8 @@ class UsuarioResourceIT {
             .segundoApellido(UPDATED_SEGUNDO_APELLIDO)
             .telefono(UPDATED_TELEFONO)
             .tipoSangre(UPDATED_TIPO_SANGRE)
-            .mail(UPDATED_MAIL);
+            .mail(UPDATED_MAIL)
+            .tipoUsuario(UPDATED_TIPO_USUARIO);
 
         restUsuarioMockMvc
             .perform(
@@ -398,6 +410,7 @@ class UsuarioResourceIT {
         assertThat(testUsuario.getTipoSangre()).isEqualTo(UPDATED_TIPO_SANGRE);
         assertThat(testUsuario.getMail()).isEqualTo(UPDATED_MAIL);
         assertThat(testUsuario.getCentroMedico()).isEqualTo(DEFAULT_CENTRO_MEDICO);
+        assertThat(testUsuario.getTipoUsuario()).isEqualTo(UPDATED_TIPO_USUARIO);
     }
 
     @Test
@@ -423,7 +436,8 @@ class UsuarioResourceIT {
             .telefono(UPDATED_TELEFONO)
             .tipoSangre(UPDATED_TIPO_SANGRE)
             .mail(UPDATED_MAIL)
-            .centroMedico(UPDATED_CENTRO_MEDICO);
+            .centroMedico(UPDATED_CENTRO_MEDICO)
+            .tipoUsuario(UPDATED_TIPO_USUARIO);
 
         restUsuarioMockMvc
             .perform(
@@ -448,6 +462,7 @@ class UsuarioResourceIT {
         assertThat(testUsuario.getTipoSangre()).isEqualTo(UPDATED_TIPO_SANGRE);
         assertThat(testUsuario.getMail()).isEqualTo(UPDATED_MAIL);
         assertThat(testUsuario.getCentroMedico()).isEqualTo(UPDATED_CENTRO_MEDICO);
+        assertThat(testUsuario.getTipoUsuario()).isEqualTo(UPDATED_TIPO_USUARIO);
     }
 
     @Test

@@ -1,6 +1,7 @@
 package com.cenfotec.vitas.domain;
 
 import com.cenfotec.vitas.domain.enumeration.TipoDeSangre;
+import com.cenfotec.vitas.domain.enumeration.TipoUsuario;
 import java.io.Serializable;
 import java.time.LocalDate;
 import javax.persistence.*;
@@ -51,6 +52,14 @@ public class Usuario implements Serializable {
 
     @Column(name = "centro_medico")
     private String centroMedico;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "tipo_usuario")
+    private TipoUsuario tipoUsuario;
+
+    @OneToOne
+    @JoinColumn(unique = true)
+    private User user;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -209,6 +218,32 @@ public class Usuario implements Serializable {
         this.centroMedico = centroMedico;
     }
 
+    public TipoUsuario getTipoUsuario() {
+        return this.tipoUsuario;
+    }
+
+    public Usuario tipoUsuario(TipoUsuario tipoUsuario) {
+        this.tipoUsuario = tipoUsuario;
+        return this;
+    }
+
+    public void setTipoUsuario(TipoUsuario tipoUsuario) {
+        this.tipoUsuario = tipoUsuario;
+    }
+
+    public User getUser() {
+        return this.user;
+    }
+
+    public Usuario user(User user) {
+        this.setUser(user);
+        return this;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 
     @Override
@@ -244,6 +279,7 @@ public class Usuario implements Serializable {
             ", tipoSangre='" + getTipoSangre() + "'" +
             ", mail='" + getMail() + "'" +
             ", centroMedico='" + getCentroMedico() + "'" +
+            ", tipoUsuario='" + getTipoUsuario() + "'" +
             "}";
     }
 }

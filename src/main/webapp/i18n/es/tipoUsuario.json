@@ -1,0 +1,10 @@
+{
+  "vitasApp": {
+    "TipoUsuario": {
+      "null": "",
+      "ADMIN": "ADMIN",
+      "CENTINELA": "CENTINELA",
+      "ASEGURADO": "ASEGURADO"
+    }
+  }
+}

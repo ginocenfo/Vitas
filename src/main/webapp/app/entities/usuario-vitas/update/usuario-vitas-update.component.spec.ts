@@ -10,6 +10,9 @@ import { of, Subject } from 'rxjs';
 import { UsuarioVitasService } from '../service/usuario-vitas.service';
 import { IUsuarioVitas, UsuarioVitas } from '../usuario-vitas.model';
 
+import { IUser } from 'app/entities/user/user.model';
+import { UserService } from 'app/entities/user/user.service';
+
 import { UsuarioVitasUpdateComponent } from './usuario-vitas-update.component';
 
 describe('Component Tests', () => {
@@ -18,6 +21,7 @@ describe('Component Tests', () => {
     let fixture: ComponentFixture<UsuarioVitasUpdateComponent>;
     let activatedRoute: ActivatedRoute;
     let usuarioService: UsuarioVitasService;
+    let userService: UserService;
 
     beforeEach(() => {
       TestBed.configureTestingModule({
@@ -31,18 +35,41 @@ describe('Component Tests', () => {
       fixture = TestBed.createComponent(UsuarioVitasUpdateComponent);
       activatedRoute = TestBed.inject(ActivatedRoute);
       usuarioService = TestBed.inject(UsuarioVitasService);
+      userService = TestBed.inject(UserService);
 
       comp = fixture.componentInstance;
     });
 
     describe('ngOnInit', () => {
+      it('Should call User query and add missing value', () => {
+        const usuario: IUsuarioVitas = { id: 456 };
+        const user: IUser = { id: 13812 };
+        usuario.user = user;
+
+        const userCollection: IUser[] = [{ id: 98506 }];
+        jest.spyOn(userService, 'query').mockReturnValue(of(new HttpResponse({ body: userCollection })));
+        const additionalUsers = [user];
+        const expectedCollection: IUser[] = [...additionalUsers, ...userCollection];
+        jest.spyOn(userService, 'addUserToCollectionIfMissing').mockReturnValue(expectedCollection);
+
+        activatedRoute.data = of({ usuario });
+        comp.ngOnInit();
+
+        expect(userService.query).toHaveBeenCalled();
+        expect(userService.addUserToCollectionIfMissing).toHaveBeenCalledWith(userCollection, ...additionalUsers);
+        expect(comp.usersSharedCollection).toEqual(expectedCollection);
+      });
+
       it('Should update editForm', () => {
         const usuario: IUsuarioVitas = { id: 456 };
+        const user: IUser = { id: 95854 };
+        usuario.user = user;
 
         activatedRoute.data = of({ usuario });
         comp.ngOnInit();
 
         expect(comp.editForm.value).toEqual(expect.objectContaining(usuario));
+        expect(comp.usersSharedCollection).toContain(user);
       });
     });
 
@@ -107,6 +134,16 @@ describe('Component Tests', () => {
         expect(usuarioService.update).toHaveBeenCalledWith(usuario);
         expect(comp.isSaving).toEqual(false);
         expect(comp.previousState).not.toHaveBeenCalled();
+      });
+    });
+
+    describe('Tracking relationships identifiers', () => {
+      describe('trackUserById', () => {
+        it('Should return tracked User primary key', () => {
+          const entity = { id: 123 };
+          const trackResult = comp.trackUserById(0, entity);
+          expect(trackResult).toEqual(entity.id);
+        });
       });
     });
   });

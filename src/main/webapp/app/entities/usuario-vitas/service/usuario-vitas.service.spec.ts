@@ -4,6 +4,7 @@ import * as dayjs from 'dayjs';
 
 import { DATE_FORMAT } from 'app/config/input.constants';
 import { TipoDeSangre } from 'app/entities/enumerations/tipo-de-sangre.model';
+import { TipoUsuario } from 'app/entities/enumerations/tipo-usuario.model';
 import { IUsuarioVitas, UsuarioVitas } from '../usuario-vitas.model';
 
 import { UsuarioVitasService } from './usuario-vitas.service';
@@ -38,6 +39,7 @@ describe('Service Tests', () => {
         tipoSangre: TipoDeSangre.O_NEGATIVO,
         mail: 'AAAAAAA',
         centroMedico: 'AAAAAAA',
+        tipoUsuario: TipoUsuario.ADMIN,
       };
     });
 
@@ -95,6 +97,7 @@ describe('Service Tests', () => {
             tipoSangre: 'BBBBBB',
             mail: 'BBBBBB',
             centroMedico: 'BBBBBB',
+            tipoUsuario: 'BBBBBB',
           },
           elemDefault
         );
@@ -123,6 +126,7 @@ describe('Service Tests', () => {
             tipoSangre: 'BBBBBB',
             mail: 'BBBBBB',
             centroMedico: 'BBBBBB',
+            tipoUsuario: 'BBBBBB',
           },
           new UsuarioVitas()
         );
@@ -158,6 +162,7 @@ describe('Service Tests', () => {
             tipoSangre: 'BBBBBB',
             mail: 'BBBBBB',
             centroMedico: 'BBBBBB',
+            tipoUsuario: 'BBBBBB',
           },
           elemDefault
         );
@@ -214,7 +219,7 @@ describe('Service Tests', () => {
         });
 
         it('should add only unique UsuarioVitas to an array', () => {
-          const usuarioArray: IUsuarioVitas[] = [{ id: 123 }, { id: 456 }, { id: 63483 }];
+          const usuarioArray: IUsuarioVitas[] = [{ id: 123 }, { id: 456 }, { id: 59387 }];
           const usuarioCollection: IUsuarioVitas[] = [{ id: 123 }];
           expectedResult = service.addUsuarioVitasToCollectionIfMissing(usuarioCollection, ...usuarioArray);
           expect(expectedResult).toHaveLength(3);

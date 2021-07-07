@@ -58,6 +58,14 @@
         <dd>
           <span>{{ usuario.centroMedico }}</span>
         </dd>
+        <dt><span jhiTranslate="vitasApp.usuario.tipoUsuario">Tipo Usuario</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'vitasApp.TipoUsuario.' + usuario.tipoUsuario }}">{{ usuario.tipoUsuario }}</span>
+        </dd>
+        <dt><span jhiTranslate="vitasApp.usuario.user">User</span></dt>
+        <dd>
+          <span>{{ usuario.user?.id }}</span>
+        </dd>
       </dl>
 
       <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">

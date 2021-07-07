@@ -1,0 +1,38 @@
+{
+  "name": "Internamiento",
+  "fields": [
+    {
+      "fieldName": "inicioInternamiento",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "duracionInternamiento",
+      "fieldType": "Integer"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "usuario",
+      "otherEntityRelationshipName": "internamiento",
+      "relationshipName": "paciente"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "sala",
+      "otherEntityRelationshipName": "internamiento",
+      "relationshipName": "sala"
+    }
+  ],
+  "entityTableName": "internamiento",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "angularJSSuffix": "vitas",
+  "changelogDate": "20210707015812"
+}

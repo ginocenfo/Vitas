@@ -19,7 +19,7 @@ public class VisitasPacienteDTO implements Serializable {
 
     private UsuarioDTO visitante;
 
-    private SalaDTO sala;
+    private InternamientoDTO sala;
 
     public Long getId() {
         return id;
@@ -61,11 +61,11 @@ public class VisitasPacienteDTO implements Serializable {
         this.visitante = visitante;
     }
 
-    public SalaDTO getSala() {
+    public InternamientoDTO getSala() {
         return sala;
     }
 
-    public void setSala(SalaDTO sala) {
+    public void setSala(InternamientoDTO sala) {
         this.sala = sala;
     }
 

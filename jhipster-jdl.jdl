@@ -35,6 +35,12 @@ entity Usuario{
     tipoSangre				TipoDeSangre
     mail					String
     centroMedico			String
+    tipoUsuario				TipoUsuario
+}
+
+entity Internamiento{
+	inicioInternamiento		Instant
+    duracionInternamiento	Integer
 }
 
 entity VisitasPaciente{
@@ -53,15 +59,28 @@ enum TipoDeSangre{
     AB_POSITIVO
 }
 
+enum TipoUsuario{
+	ADMIN
+    CENTINELA
+    ASEGURADO
+}
+
+relationship OneToOne{
+	Usuario{user} to User
+}
+
 relationship OneToMany {
-	Hospital{salas} to Sala{hospital}
+	Hospital{salas} 				to Sala{hospital}
 }
 
 relationship ManyToOne{
-	VisitasPaciente{Paciente} to Usuario
-    VisitasPaciente{Visitante} to Usuario
-    VisitasPaciente{Sala} to Sala
-    Horario{Horario} to Sala
+	VisitasPaciente{paciente} 		to Usuario
+    VisitasPaciente{visitante}		to Usuario
+    VisitasPaciente{sala}			to Internamiento
+    Horario{sala}					to Sala
+    Internamiento{paciente}			to Usuario
+    Internamiento{sala}				to Sala
+
 }
 
 paginate * with pagination

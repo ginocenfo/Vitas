@@ -5,7 +5,7 @@ export interface IHorarioVitas {
   id?: number;
   horaEntrada?: dayjs.Dayjs | null;
   horaSalida?: dayjs.Dayjs | null;
-  horario?: ISalaVitas | null;
+  sala?: ISalaVitas | null;
 }
 
 export class HorarioVitas implements IHorarioVitas {
@@ -13,7 +13,7 @@ export class HorarioVitas implements IHorarioVitas {
     public id?: number,
     public horaEntrada?: dayjs.Dayjs | null,
     public horaSalida?: dayjs.Dayjs | null,
-    public horario?: ISalaVitas | null
+    public sala?: ISalaVitas | null
   ) {}
 }
 

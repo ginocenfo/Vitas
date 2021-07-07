@@ -43,7 +43,7 @@
     "devServerPort": 4200,
     "clientPackageManager": "npm",
     "languages": ["es", "en", "fr"],
-    "entities": ["Hospital", "Sala", "Horario", "Usuario", "VisitasPaciente"],
-    "lastLiquibaseTimestamp": 1625520350000
+    "entities": ["Hospital", "Sala", "Horario", "Usuario", "VisitasPaciente", "Internamiento"],
+    "lastLiquibaseTimestamp": 1625623092000
   }
 }

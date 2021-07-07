@@ -20,7 +20,7 @@
             <column name="hora_salida" type="${datetimeType}">
                 <constraints nullable="true" />
             </column>
-            <column name="horario_id" type="bigint">
+            <column name="sala_id" type="bigint">
                 <constraints nullable="true" />
             </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->

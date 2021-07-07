@@ -68,10 +68,10 @@
           <select class="form-control" id="field_sala" data-cy="sala" name="sala" formControlName="sala">
             <option [ngValue]="null"></option>
             <option
-              [ngValue]="salaOption.id === editForm.get('sala')!.value?.id ? editForm.get('sala')!.value : salaOption"
-              *ngFor="let salaOption of salasSharedCollection; trackBy: trackSalaVitasById"
+              [ngValue]="internamientoOption.id === editForm.get('sala')!.value?.id ? editForm.get('sala')!.value : internamientoOption"
+              *ngFor="let internamientoOption of internamientosSharedCollection; trackBy: trackInternamientoVitasById"
             >
-              {{ salaOption.id }}
+              {{ internamientoOption.id }}
             </option>
           </select>
         </div>

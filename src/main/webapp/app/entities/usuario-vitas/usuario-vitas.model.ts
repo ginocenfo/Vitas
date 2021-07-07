@@ -1,5 +1,7 @@
 import * as dayjs from 'dayjs';
+import { IUser } from 'app/entities/user/user.model';
 import { TipoDeSangre } from 'app/entities/enumerations/tipo-de-sangre.model';
+import { TipoUsuario } from 'app/entities/enumerations/tipo-usuario.model';
 
 export interface IUsuarioVitas {
   id?: number;
@@ -14,6 +16,8 @@ export interface IUsuarioVitas {
   tipoSangre?: TipoDeSangre | null;
   mail?: string | null;
   centroMedico?: string | null;
+  tipoUsuario?: TipoUsuario | null;
+  user?: IUser | null;
 }
 
 export class UsuarioVitas implements IUsuarioVitas {
@@ -29,7 +33,9 @@ export class UsuarioVitas implements IUsuarioVitas {
     public telefono?: string | null,
     public tipoSangre?: TipoDeSangre | null,
     public mail?: string | null,
-    public centroMedico?: string | null
+    public centroMedico?: string | null,
+    public tipoUsuario?: TipoUsuario | null,
+    public user?: IUser | null
   ) {}
 }
 

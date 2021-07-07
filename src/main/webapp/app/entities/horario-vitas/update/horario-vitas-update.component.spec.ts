@@ -42,12 +42,12 @@ describe('Component Tests', () => {
     describe('ngOnInit', () => {
       it('Should call SalaVitas query and add missing value', () => {
         const horario: IHorarioVitas = { id: 456 };
-        const horario: ISalaVitas = { id: 62168 };
-        horario.horario = horario;
+        const sala: ISalaVitas = { id: 62168 };
+        horario.sala = sala;
 
         const salaCollection: ISalaVitas[] = [{ id: 52118 }];
         jest.spyOn(salaService, 'query').mockReturnValue(of(new HttpResponse({ body: salaCollection })));
-        const additionalSalaVitas = [horario];
+        const additionalSalaVitas = [sala];
         const expectedCollection: ISalaVitas[] = [...additionalSalaVitas, ...salaCollection];
         jest.spyOn(salaService, 'addSalaVitasToCollectionIfMissing').mockReturnValue(expectedCollection);
 
@@ -61,14 +61,14 @@ describe('Component Tests', () => {
 
       it('Should update editForm', () => {
         const horario: IHorarioVitas = { id: 456 };
-        const horario: ISalaVitas = { id: 15629 };
-        horario.horario = horario;
+        const sala: ISalaVitas = { id: 15629 };
+        horario.sala = sala;
 
         activatedRoute.data = of({ horario });
         comp.ngOnInit();
 
         expect(comp.editForm.value).toEqual(expect.objectContaining(horario));
-        expect(comp.salasSharedCollection).toContain(horario);
+        expect(comp.salasSharedCollection).toContain(sala);
       });
     });
 

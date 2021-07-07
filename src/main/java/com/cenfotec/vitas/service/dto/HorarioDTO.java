@@ -15,7 +15,7 @@ public class HorarioDTO implements Serializable {
 
     private Instant horaSalida;
 
-    private SalaDTO horario;
+    private SalaDTO sala;
 
     public Long getId() {
         return id;
@@ -41,12 +41,12 @@ public class HorarioDTO implements Serializable {
         this.horaSalida = horaSalida;
     }
 
-    public SalaDTO getHorario() {
-        return horario;
+    public SalaDTO getSala() {
+        return sala;
     }
 
-    public void setHorario(SalaDTO horario) {
-        this.horario = horario;
+    public void setSala(SalaDTO sala) {
+        this.sala = sala;
     }
 
     @Override
@@ -77,7 +77,7 @@ public class HorarioDTO implements Serializable {
             "id=" + getId() +
             ", horaEntrada='" + getHoraEntrada() + "'" +
             ", horaSalida='" + getHoraSalida() + "'" +
-            ", horario=" + getHorario() +
+            ", sala=" + getSala() +
             "}";
     }
 }

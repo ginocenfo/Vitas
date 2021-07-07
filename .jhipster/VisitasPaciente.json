@@ -25,7 +25,7 @@
     },
     {
       "relationshipType": "many-to-one",
-      "otherEntityName": "sala",
+      "otherEntityName": "internamiento",
       "otherEntityRelationshipName": "visitasPaciente",
       "relationshipName": "sala"
     }

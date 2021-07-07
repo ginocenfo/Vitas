@@ -20,7 +20,7 @@
       "id": "ID",
       "horaEntrada": "Hora Entrada",
       "horaSalida": "Hora Salida",
-      "horario": "Horario"
+      "sala": "Sala"
     }
   }
 }

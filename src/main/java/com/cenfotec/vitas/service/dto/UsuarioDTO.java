@@ -1,6 +1,7 @@
 package com.cenfotec.vitas.service.dto;
 
 import com.cenfotec.vitas.domain.enumeration.TipoDeSangre;
+import com.cenfotec.vitas.domain.enumeration.TipoUsuario;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;
@@ -33,6 +34,10 @@ public class UsuarioDTO implements Serializable {
     private String mail;
 
     private String centroMedico;
+
+    private TipoUsuario tipoUsuario;
+
+    private UserDTO user;
 
     public Long getId() {
         return id;
@@ -130,6 +135,22 @@ public class UsuarioDTO implements Serializable {
         this.centroMedico = centroMedico;
     }
 
+    public TipoUsuario getTipoUsuario() {
+        return tipoUsuario;
+    }
+
+    public void setTipoUsuario(TipoUsuario tipoUsuario) {
+        this.tipoUsuario = tipoUsuario;
+    }
+
+    public UserDTO getUser() {
+        return user;
+    }
+
+    public void setUser(UserDTO user) {
+        this.user = user;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -167,6 +188,8 @@ public class UsuarioDTO implements Serializable {
             ", tipoSangre='" + getTipoSangre() + "'" +
             ", mail='" + getMail() + "'" +
             ", centroMedico='" + getCentroMedico() + "'" +
+            ", tipoUsuario='" + getTipoUsuario() + "'" +
+            ", user=" + getUser() +
             "}";
     }
 }

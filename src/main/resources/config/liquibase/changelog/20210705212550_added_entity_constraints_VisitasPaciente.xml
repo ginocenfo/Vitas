@@ -24,6 +24,6 @@
                                  baseTableName="visitas_paciente"
                                  constraintName="fk_visitas_paciente__sala_id"
                                  referencedColumnNames="id"
-                                 referencedTableName="sala"/>
+                                 referencedTableName="internamiento"/>
     </changeSet>
 </databaseChangeLog>

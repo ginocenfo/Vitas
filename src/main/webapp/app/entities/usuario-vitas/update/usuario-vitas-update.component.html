@@ -143,6 +143,29 @@
             formControlName="centroMedico"
           />
         </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="vitasApp.usuario.tipoUsuario" for="field_tipoUsuario">Tipo Usuario</label>
+          <select class="form-control" name="tipoUsuario" formControlName="tipoUsuario" id="field_tipoUsuario" data-cy="tipoUsuario">
+            <option [ngValue]="null">{{ 'vitasApp.TipoUsuario.null' | translate }}</option>
+            <option value="ADMIN">{{ 'vitasApp.TipoUsuario.ADMIN' | translate }}</option>
+            <option value="CENTINELA">{{ 'vitasApp.TipoUsuario.CENTINELA' | translate }}</option>
+            <option value="ASEGURADO">{{ 'vitasApp.TipoUsuario.ASEGURADO' | translate }}</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="vitasApp.usuario.user" for="field_user">User</label>
+          <select class="form-control" id="field_user" data-cy="user" name="user" formControlName="user">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="userOption.id === editForm.get('user')!.value?.id ? editForm.get('user')!.value : userOption"
+              *ngFor="let userOption of usersSharedCollection; trackBy: trackUserById"
+            >
+              {{ userOption.id }}
+            </option>
+          </select>
+        </div>
       </div>
 
       <div>

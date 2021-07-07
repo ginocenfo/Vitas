@@ -29,6 +29,11 @@ import { RouterModule } from '@angular/router';
         data: { pageTitle: 'vitasApp.visitasPaciente.home.title' },
         loadChildren: () => import('./visitas-paciente-vitas/visitas-paciente-vitas.module').then(m => m.VisitasPacienteVitasModule),
       },
+      {
+        path: 'internamiento-vitas',
+        data: { pageTitle: 'vitasApp.internamiento.home.title' },
+        loadChildren: () => import('./internamiento-vitas/internamiento-vitas.module').then(m => m.InternamientoVitasModule),
+      },
       /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
     ]),
   ],

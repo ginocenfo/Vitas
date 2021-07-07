@@ -1,0 +1,27 @@
+{
+  "vitasApp": {
+    "internamiento": {
+      "home": {
+        "title": "Internamientos",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Internamiento",
+        "createOrEditLabel": "Créer ou éditer un Internamiento",
+        "notFound": "Aucun Internamiento trouvé"
+      },
+      "created": "Un nouveau Internamiento a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Internamiento avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Internamiento avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Internamiento {{ id }} ?"
+      },
+      "detail": {
+        "title": "Internamiento"
+      },
+      "id": "ID",
+      "inicioInternamiento": "Inicio Internamiento",
+      "duracionInternamiento": "Duracion Internamiento",
+      "paciente": "Paciente",
+      "sala": "Sala"
+    }
+  }
+}

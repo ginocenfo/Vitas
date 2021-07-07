@@ -39,9 +39,7 @@
           <th scope="col" jhiSortBy="horaSalida">
             <span jhiTranslate="vitasApp.horario.horaSalida">Hora Salida</span> <fa-icon icon="sort"></fa-icon>
           </th>
-          <th scope="col" jhiSortBy="horario.id">
-            <span jhiTranslate="vitasApp.horario.horario">Horario</span> <fa-icon icon="sort"></fa-icon>
-          </th>
+          <th scope="col" jhiSortBy="sala.id"><span jhiTranslate="vitasApp.horario.sala">Sala</span> <fa-icon icon="sort"></fa-icon></th>
           <th scope="col"></th>
         </tr>
       </thead>
@@ -53,8 +51,8 @@
           <td>{{ horario.horaEntrada | formatMediumDatetime }}</td>
           <td>{{ horario.horaSalida | formatMediumDatetime }}</td>
           <td>
-            <div *ngIf="horario.horario">
-              <a [routerLink]="['/sala-vitas', horario.horario?.id, 'view']">{{ horario.horario?.id }}</a>
+            <div *ngIf="horario.sala">
+              <a [routerLink]="['/sala-vitas', horario.sala?.id, 'view']">{{ horario.sala?.id }}</a>
             </div>
           </td>
           <td class="text-right">

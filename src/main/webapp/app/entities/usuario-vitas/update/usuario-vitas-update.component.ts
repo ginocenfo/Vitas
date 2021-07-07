@@ -3,10 +3,12 @@ import { HttpResponse } from '@angular/common/http';
 import { FormBuilder } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
-import { finalize } from 'rxjs/operators';
+import { finalize, map } from 'rxjs/operators';
 
 import { IUsuarioVitas, UsuarioVitas } from '../usuario-vitas.model';
 import { UsuarioVitasService } from '../service/usuario-vitas.service';
+import { IUser } from 'app/entities/user/user.model';
+import { UserService } from 'app/entities/user/user.service';
 
 @Component({
   selector: 'jhi-usuario-vitas-update',
@@ -14,6 +16,8 @@ import { UsuarioVitasService } from '../service/usuario-vitas.service';
 })
 export class UsuarioVitasUpdateComponent implements OnInit {
   isSaving = false;
+
+  usersSharedCollection: IUser[] = [];
 
   editForm = this.fb.group({
     id: [],
@@ -28,13 +32,22 @@ export class UsuarioVitasUpdateComponent implements OnInit {
     tipoSangre: [],
     mail: [],
     centroMedico: [],
+    tipoUsuario: [],
+    user: [],
   });
 
-  constructor(protected usuarioService: UsuarioVitasService, protected activatedRoute: ActivatedRoute, protected fb: FormBuilder) {}
+  constructor(
+    protected usuarioService: UsuarioVitasService,
+    protected userService: UserService,
+    protected activatedRoute: ActivatedRoute,
+    protected fb: FormBuilder
+  ) {}
 
   ngOnInit(): void {
     this.activatedRoute.data.subscribe(({ usuario }) => {
       this.updateForm(usuario);
+
+      this.loadRelationshipsOptions();
     });
   }
 
@@ -50,6 +63,10 @@ export class UsuarioVitasUpdateComponent implements OnInit {
     } else {
       this.subscribeToSaveResponse(this.usuarioService.create(usuario));
     }
+  }
+
+  trackUserById(index: number, item: IUser): number {
+    return item.id!;
   }
 
   protected subscribeToSaveResponse(result: Observable<HttpResponse<IUsuarioVitas>>): void {
@@ -85,7 +102,19 @@ export class UsuarioVitasUpdateComponent implements OnInit {
       tipoSangre: usuario.tipoSangre,
       mail: usuario.mail,
       centroMedico: usuario.centroMedico,
+      tipoUsuario: usuario.tipoUsuario,
+      user: usuario.user,
     });
+
+    this.usersSharedCollection = this.userService.addUserToCollectionIfMissing(this.usersSharedCollection, usuario.user);
+  }
+
+  protected loadRelationshipsOptions(): void {
+    this.userService
+      .query()
+      .pipe(map((res: HttpResponse<IUser[]>) => res.body ?? []))
+      .pipe(map((users: IUser[]) => this.userService.addUserToCollectionIfMissing(users, this.editForm.get('user')!.value)))
+      .subscribe((users: IUser[]) => (this.usersSharedCollection = users));
   }
 
   protected createFromForm(): IUsuarioVitas {
@@ -103,6 +132,8 @@ export class UsuarioVitasUpdateComponent implements OnInit {
       tipoSangre: this.editForm.get(['tipoSangre'])!.value,
       mail: this.editForm.get(['mail'])!.value,
       centroMedico: this.editForm.get(['centroMedico'])!.value,
+      tipoUsuario: this.editForm.get(['tipoUsuario'])!.value,
+      user: this.editForm.get(['user'])!.value,
     };
   }
 }

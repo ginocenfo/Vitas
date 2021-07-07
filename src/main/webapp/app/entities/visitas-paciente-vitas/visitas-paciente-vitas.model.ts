@@ -1,6 +1,6 @@
 import * as dayjs from 'dayjs';
 import { IUsuarioVitas } from 'app/entities/usuario-vitas/usuario-vitas.model';
-import { ISalaVitas } from 'app/entities/sala-vitas/sala-vitas.model';
+import { IInternamientoVitas } from 'app/entities/internamiento-vitas/internamiento-vitas.model';
 
 export interface IVisitasPacienteVitas {
   id?: number;
@@ -8,7 +8,7 @@ export interface IVisitasPacienteVitas {
   duracion?: number | null;
   paciente?: IUsuarioVitas | null;
   visitante?: IUsuarioVitas | null;
-  sala?: ISalaVitas | null;
+  sala?: IInternamientoVitas | null;
 }
 
 export class VisitasPacienteVitas implements IVisitasPacienteVitas {
@@ -18,7 +18,7 @@ export class VisitasPacienteVitas implements IVisitasPacienteVitas {
     public duracion?: number | null,
     public paciente?: IUsuarioVitas | null,
     public visitante?: IUsuarioVitas | null,
-    public sala?: ISalaVitas | null
+    public sala?: IInternamientoVitas | null
   ) {}
 }
 

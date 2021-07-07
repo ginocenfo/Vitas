@@ -28,7 +28,9 @@
       "telefono": "Telefono",
       "tipoSangre": "Tipo Sangre",
       "mail": "Mail",
-      "centroMedico": "Centro Medico"
+      "centroMedico": "Centro Medico",
+      "tipoUsuario": "Tipo Usuario",
+      "user": "User"
     }
   }
 }

@@ -12,8 +12,8 @@ import { IVisitasPacienteVitas, VisitasPacienteVitas } from '../visitas-paciente
 import { VisitasPacienteVitasService } from '../service/visitas-paciente-vitas.service';
 import { IUsuarioVitas } from 'app/entities/usuario-vitas/usuario-vitas.model';
 import { UsuarioVitasService } from 'app/entities/usuario-vitas/service/usuario-vitas.service';
-import { ISalaVitas } from 'app/entities/sala-vitas/sala-vitas.model';
-import { SalaVitasService } from 'app/entities/sala-vitas/service/sala-vitas.service';
+import { IInternamientoVitas } from 'app/entities/internamiento-vitas/internamiento-vitas.model';
+import { InternamientoVitasService } from 'app/entities/internamiento-vitas/service/internamiento-vitas.service';
 
 @Component({
   selector: 'jhi-visitas-paciente-vitas-update',
@@ -23,7 +23,7 @@ export class VisitasPacienteVitasUpdateComponent implements OnInit {
   isSaving = false;
 
   usuariosSharedCollection: IUsuarioVitas[] = [];
-  salasSharedCollection: ISalaVitas[] = [];
+  internamientosSharedCollection: IInternamientoVitas[] = [];
 
   editForm = this.fb.group({
     id: [],
@@ -37,7 +37,7 @@ export class VisitasPacienteVitasUpdateComponent implements OnInit {
   constructor(
     protected visitasPacienteService: VisitasPacienteVitasService,
     protected usuarioService: UsuarioVitasService,
-    protected salaService: SalaVitasService,
+    protected internamientoService: InternamientoVitasService,
     protected activatedRoute: ActivatedRoute,
     protected fb: FormBuilder
   ) {}
@@ -73,7 +73,7 @@ export class VisitasPacienteVitasUpdateComponent implements OnInit {
     return item.id!;
   }
 
-  trackSalaVitasById(index: number, item: ISalaVitas): number {
+  trackInternamientoVitasById(index: number, item: IInternamientoVitas): number {
     return item.id!;
   }
 
@@ -111,7 +111,10 @@ export class VisitasPacienteVitasUpdateComponent implements OnInit {
       visitasPaciente.paciente,
       visitasPaciente.visitante
     );
-    this.salasSharedCollection = this.salaService.addSalaVitasToCollectionIfMissing(this.salasSharedCollection, visitasPaciente.sala);
+    this.internamientosSharedCollection = this.internamientoService.addInternamientoVitasToCollectionIfMissing(
+      this.internamientosSharedCollection,
+      visitasPaciente.sala
+    );
   }
 
   protected loadRelationshipsOptions(): void {
@@ -129,11 +132,15 @@ export class VisitasPacienteVitasUpdateComponent implements OnInit {
       )
       .subscribe((usuarios: IUsuarioVitas[]) => (this.usuariosSharedCollection = usuarios));
 
-    this.salaService
+    this.internamientoService
       .query()
-      .pipe(map((res: HttpResponse<ISalaVitas[]>) => res.body ?? []))
-      .pipe(map((salas: ISalaVitas[]) => this.salaService.addSalaVitasToCollectionIfMissing(salas, this.editForm.get('sala')!.value)))
-      .subscribe((salas: ISalaVitas[]) => (this.salasSharedCollection = salas));
+      .pipe(map((res: HttpResponse<IInternamientoVitas[]>) => res.body ?? []))
+      .pipe(
+        map((internamientos: IInternamientoVitas[]) =>
+          this.internamientoService.addInternamientoVitasToCollectionIfMissing(internamientos, this.editForm.get('sala')!.value)
+        )
+      )
+      .subscribe((internamientos: IInternamientoVitas[]) => (this.internamientosSharedCollection = internamientos));
   }
 
   protected createFromForm(): IVisitasPacienteVitas {

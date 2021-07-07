@@ -26,7 +26,7 @@ export class HorarioVitasUpdateComponent implements OnInit {
     id: [],
     horaEntrada: [],
     horaSalida: [],
-    horario: [],
+    sala: [],
   });
 
   constructor(
@@ -92,17 +92,17 @@ export class HorarioVitasUpdateComponent implements OnInit {
       id: horario.id,
       horaEntrada: horario.horaEntrada ? horario.horaEntrada.format(DATE_TIME_FORMAT) : null,
       horaSalida: horario.horaSalida ? horario.horaSalida.format(DATE_TIME_FORMAT) : null,
-      horario: horario.horario,
+      sala: horario.sala,
     });
 
-    this.salasSharedCollection = this.salaService.addSalaVitasToCollectionIfMissing(this.salasSharedCollection, horario.horario);
+    this.salasSharedCollection = this.salaService.addSalaVitasToCollectionIfMissing(this.salasSharedCollection, horario.sala);
   }
 
   protected loadRelationshipsOptions(): void {
     this.salaService
       .query()
       .pipe(map((res: HttpResponse<ISalaVitas[]>) => res.body ?? []))
-      .pipe(map((salas: ISalaVitas[]) => this.salaService.addSalaVitasToCollectionIfMissing(salas, this.editForm.get('horario')!.value)))
+      .pipe(map((salas: ISalaVitas[]) => this.salaService.addSalaVitasToCollectionIfMissing(salas, this.editForm.get('sala')!.value)))
       .subscribe((salas: ISalaVitas[]) => (this.salasSharedCollection = salas));
   }
 
@@ -114,7 +114,7 @@ export class HorarioVitasUpdateComponent implements OnInit {
         ? dayjs(this.editForm.get(['horaEntrada'])!.value, DATE_TIME_FORMAT)
         : undefined,
       horaSalida: this.editForm.get(['horaSalida'])!.value ? dayjs(this.editForm.get(['horaSalida'])!.value, DATE_TIME_FORMAT) : undefined,
-      horario: this.editForm.get(['horario'])!.value,
+      sala: this.editForm.get(['sala'])!.value,
     };
   }
 }

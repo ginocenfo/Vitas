@@ -11,8 +11,8 @@ import { VisitasPacienteVitasService } from '../service/visitas-paciente-vitas.s
 import { IVisitasPacienteVitas, VisitasPacienteVitas } from '../visitas-paciente-vitas.model';
 import { IUsuarioVitas } from 'app/entities/usuario-vitas/usuario-vitas.model';
 import { UsuarioVitasService } from 'app/entities/usuario-vitas/service/usuario-vitas.service';
-import { ISalaVitas } from 'app/entities/sala-vitas/sala-vitas.model';
-import { SalaVitasService } from 'app/entities/sala-vitas/service/sala-vitas.service';
+import { IInternamientoVitas } from 'app/entities/internamiento-vitas/internamiento-vitas.model';
+import { InternamientoVitasService } from 'app/entities/internamiento-vitas/service/internamiento-vitas.service';
 
 import { VisitasPacienteVitasUpdateComponent } from './visitas-paciente-vitas-update.component';
 
@@ -23,7 +23,7 @@ describe('Component Tests', () => {
     let activatedRoute: ActivatedRoute;
     let visitasPacienteService: VisitasPacienteVitasService;
     let usuarioService: UsuarioVitasService;
-    let salaService: SalaVitasService;
+    let internamientoService: InternamientoVitasService;
 
     beforeEach(() => {
       TestBed.configureTestingModule({
@@ -38,7 +38,7 @@ describe('Component Tests', () => {
       activatedRoute = TestBed.inject(ActivatedRoute);
       visitasPacienteService = TestBed.inject(VisitasPacienteVitasService);
       usuarioService = TestBed.inject(UsuarioVitasService);
-      salaService = TestBed.inject(SalaVitasService);
+      internamientoService = TestBed.inject(InternamientoVitasService);
 
       comp = fixture.componentInstance;
     });
@@ -65,23 +65,26 @@ describe('Component Tests', () => {
         expect(comp.usuariosSharedCollection).toEqual(expectedCollection);
       });
 
-      it('Should call SalaVitas query and add missing value', () => {
+      it('Should call InternamientoVitas query and add missing value', () => {
         const visitasPaciente: IVisitasPacienteVitas = { id: 456 };
-        const sala: ISalaVitas = { id: 35247 };
+        const sala: IInternamientoVitas = { id: 80571 };
         visitasPaciente.sala = sala;
 
-        const salaCollection: ISalaVitas[] = [{ id: 57692 }];
-        jest.spyOn(salaService, 'query').mockReturnValue(of(new HttpResponse({ body: salaCollection })));
-        const additionalSalaVitas = [sala];
-        const expectedCollection: ISalaVitas[] = [...additionalSalaVitas, ...salaCollection];
-        jest.spyOn(salaService, 'addSalaVitasToCollectionIfMissing').mockReturnValue(expectedCollection);
+        const internamientoCollection: IInternamientoVitas[] = [{ id: 88612 }];
+        jest.spyOn(internamientoService, 'query').mockReturnValue(of(new HttpResponse({ body: internamientoCollection })));
+        const additionalInternamientoVitas = [sala];
+        const expectedCollection: IInternamientoVitas[] = [...additionalInternamientoVitas, ...internamientoCollection];
+        jest.spyOn(internamientoService, 'addInternamientoVitasToCollectionIfMissing').mockReturnValue(expectedCollection);
 
         activatedRoute.data = of({ visitasPaciente });
         comp.ngOnInit();
 
-        expect(salaService.query).toHaveBeenCalled();
-        expect(salaService.addSalaVitasToCollectionIfMissing).toHaveBeenCalledWith(salaCollection, ...additionalSalaVitas);
-        expect(comp.salasSharedCollection).toEqual(expectedCollection);
+        expect(internamientoService.query).toHaveBeenCalled();
+        expect(internamientoService.addInternamientoVitasToCollectionIfMissing).toHaveBeenCalledWith(
+          internamientoCollection,
+          ...additionalInternamientoVitas
+        );
+        expect(comp.internamientosSharedCollection).toEqual(expectedCollection);
       });
 
       it('Should update editForm', () => {
@@ -90,7 +93,7 @@ describe('Component Tests', () => {
         visitasPaciente.paciente = paciente;
         const visitante: IUsuarioVitas = { id: 89861 };
         visitasPaciente.visitante = visitante;
-        const sala: ISalaVitas = { id: 47816 };
+        const sala: IInternamientoVitas = { id: 2049 };
         visitasPaciente.sala = sala;
 
         activatedRoute.data = of({ visitasPaciente });
@@ -99,7 +102,7 @@ describe('Component Tests', () => {
         expect(comp.editForm.value).toEqual(expect.objectContaining(visitasPaciente));
         expect(comp.usuariosSharedCollection).toContain(paciente);
         expect(comp.usuariosSharedCollection).toContain(visitante);
-        expect(comp.salasSharedCollection).toContain(sala);
+        expect(comp.internamientosSharedCollection).toContain(sala);
       });
     });
 
@@ -176,10 +179,10 @@ describe('Component Tests', () => {
         });
       });
 
-      describe('trackSalaVitasById', () => {
-        it('Should return tracked SalaVitas primary key', () => {
+      describe('trackInternamientoVitasById', () => {
+        it('Should return tracked InternamientoVitas primary key', () => {
           const entity = { id: 123 };
-          const trackResult = comp.trackSalaVitasById(0, entity);
+          const trackResult = comp.trackInternamientoVitasById(0, entity);
           expect(trackResult).toEqual(entity.id);
         });
       });

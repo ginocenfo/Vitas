@@ -9,6 +9,6 @@ import org.mapstruct.*;
  */
 @Mapper(componentModel = "spring", uses = { SalaMapper.class })
 public interface HorarioMapper extends EntityMapper<HorarioDTO, Horario> {
-    @Mapping(target = "horario", source = "horario", qualifiedByName = "id")
+    @Mapping(target = "sala", source = "sala", qualifiedByName = "id")
     HorarioDTO toDto(Horario s);
 }

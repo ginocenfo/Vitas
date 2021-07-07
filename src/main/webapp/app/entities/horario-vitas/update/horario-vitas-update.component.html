@@ -44,11 +44,11 @@
         </div>
 
         <div class="form-group">
-          <label class="form-control-label" jhiTranslate="vitasApp.horario.horario" for="field_horario">Horario</label>
-          <select class="form-control" id="field_horario" data-cy="horario" name="horario" formControlName="horario">
+          <label class="form-control-label" jhiTranslate="vitasApp.horario.sala" for="field_sala">Sala</label>
+          <select class="form-control" id="field_sala" data-cy="sala" name="sala" formControlName="sala">
             <option [ngValue]="null"></option>
             <option
-              [ngValue]="salaOption.id === editForm.get('horario')!.value?.id ? editForm.get('horario')!.value : salaOption"
+              [ngValue]="salaOption.id === editForm.get('sala')!.value?.id ? editForm.get('sala')!.value : salaOption"
               *ngFor="let salaOption of salasSharedCollection; trackBy: trackSalaVitasById"
             >
               {{ salaOption.id }}
